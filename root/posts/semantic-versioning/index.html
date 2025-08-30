@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Performance, Projects, Perspective">
+  <title>Get Semantic Versioning Right in Your Python Library (WIP) · shrishtinigam.github.io</title>
+  <link rel="stylesheet" href="https://shrishtinigam.github.io/static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('mobile-nav');
+      nav.classList.toggle('open');
+    }
+  </script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="https://shrishtinigam.github.io" class="brand">shrishtinigam.github.io</a>
+      <nav class="site-nav desktop-nav">
+        <a href="https://shrishtinigam.github.io">Home</a>
+        <a href="https://shrishtinigam.github.io">About</a>
+        <a href="https://shrishtinigam.github.io">Projects</a>
+        <a href="https://shrishtinigam.github.io">Posts</a>
+      </nav>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
+    <nav id="mobile-nav" class="site-nav mobile-nav">
+      <a href="https://shrishtinigam.github.io" onclick="toggleMenu()">Home</a>
+      <a href="https://shrishtinigam.github.io" onclick="toggleMenu()">About</a>
+      <a href="https://shrishtinigam.github.io" onclick="toggleMenu()">Projects</a>
+      <a href="https://shrishtinigam.github.io" onclick="toggleMenu()">Posts</a>
+    </nav>
+  </header>
+
+  <main>
+    
+
+<article class="post container">
+  <!-- Post Header -->
+  <header class="post-header">
+    <h1>Get Semantic Versioning Right in Your Python Library (WIP)</h1>
+    
+    <p class="muted">Aug 30, 2025</p>
+    
+  </header>
+
+  <!-- Post Content -->
+  <div class="post-body">
+    <h1 id="get-semantic-versioning-right-in-your-python-library-wip">Get Semantic Versioning Right in Your Python Library (WIP)</h1>
+<p>Applying semantic versioning the <strong>right</strong> way can prevent dependency issues when working with multiple libraries and meta-packages.</p>
+<h2 id="definition">Definition</h2>
+<p>Semantic Versioning (SemVer) is a versioning system used in software development to track changes in a structured way and reduce dependency issues. </p>
+<h2 id="commit-style">Commit Style</h2>
+<p>This part of the article is something I care about deeply personally, but not truly a part of SemVer. When applied to commit messages, it helps teams maintain consistent, meaningful, and easy-to-understand commit histories.</p>
+<p>The core idea behind this style is to categorize commits based on their impact (features, fixes, documentation updates, etc.), which makes it easier to generate changelogs, automate releases, and maintain a clean Git history.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>feat:</td>
+<td>Adds a new feature</td>
+</tr>
+<tr>
+<td>fix:</td>
+<td>Fixes a bug</td>
+</tr>
+<tr>
+<td>chore:</td>
+<td>Maintenance tasks</td>
+</tr>
+<tr>
+<td>build:</td>
+<td>Build system or dependencies</td>
+</tr>
+<tr>
+<td>docs:</td>
+<td>Documentation updates</td>
+</tr>
+<tr>
+<td>perf:</td>
+<td>Performance improvements</td>
+</tr>
+<tr>
+<td>refactor:</td>
+<td>Code refactoring</td>
+</tr>
+<tr>
+<td>style:</td>
+<td>Code formatting</td>
+</tr>
+<tr>
+<td>test:</td>
+<td>Adding or modifying tests</td>
+</tr>
+<tr>
+<td>ci:</td>
+<td>CI/CD changes</td>
+</tr>
+<tr>
+<td>revert:</td>
+<td>Reverting a commit</td>
+</tr>
+<tr>
+<td>BREAKING CHANGE:</td>
+<td>Major breaking changes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="semver-rules-summarized">SemVer Rules Summarized</h2>
+<h2 id="example-scenario">Example Scenario</h2>
+<h2 id="python-dev-tools-for-auto-incrementing-and-how-to-use-them-in-setuppy">Python Dev Tools for Auto-Incrementing and How to Use Them in setup.py</h2>
+<h2 id="how-popular-libraries-like-pandas-numpy-pytorch-etc-are-using-semver">How Popular Libraries Like pandas, numpy, pytorch, etc. Are Using SemVer</h2>
+  </div>
+
+  <!-- Back link -->
+  <p class="back-link">
+    <a href="https://shrishtinigam.github.io">← Back to Home</a>
+  </p>
+</article>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; Meher Shrishti Nigam — Powered by SSG (Python + Jinja)</p>
+    </div>
+  </footer>
+</body>
+
+</html>
