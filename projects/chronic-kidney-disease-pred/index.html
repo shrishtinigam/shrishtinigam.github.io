@@ -115,23 +115,45 @@ Chronic kidney disease (CKD) prediction is a complex task depending mainly on tw
 <li><strong>Target variable</strong>: Class → <code>ckd</code> / <code>notckd</code>.</li>
 </ul>
 <h3 id="table-1-dataset-attributes">Table 1: Dataset Attributes</h3>
-<table border="1" cellspacing="0" cellpadding="5">
-<tr><th>Sr. No.</th><th>Abbr.</th><th>Attribute</th><th>Type</th><th>Units</th></tr>
-<tr><td>1</td><td>age</td><td>Age</td><td>Numerical</td><td>years</td></tr>
-<tr><td>2</td><td>bp</td><td>Blood Pressure</td><td>Numerical</td><td>mm/Hg</td></tr>
-<tr><td>3</td><td>sg</td><td>Specific Gravity</td><td>Nominal</td><td>1.005–1.025</td></tr>
-<tr><td>4</td><td>al</td><td>Albumin</td><td>Nominal</td><td>0–5</td></tr>
-<tr><td>5</td><td>su</td><td>Sugar</td><td>Nominal</td><td>0–5</td></tr>
-<tr><td>6</td><td>rbc</td><td>Red Blood Cells</td><td>Nominal</td><td>normal/abnormal</td></tr>
-<tr><td>7</td><td>pc</td><td>Pus Cell</td><td>Nominal</td><td>normal/abnormal</td></tr>
-<tr><td>8</td><td>pcc</td><td>Pus Cell Clumps</td><td>Nominal</td><td>present/notpresent</td></tr>
-<tr><td>9</td><td>ba</td><td>Bacteria</td><td>Nominal</td><td>present/notpresent</td></tr>
-<tr><td>10</td><td>bgr</td><td>Blood Glucose Random</td><td>Numerical</td><td>mg/dl</td></tr>
-<tr><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
-<tr><td>25</td><td>class</td><td>CKD Classification</td><td>Nominal</td><td>ckd/notckd</td></tr>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; text-align: left;">
+  <thead>
+    <tr>
+      <th>Sr. No.</th>
+      <th>Attribute Abbr.</th>
+      <th>Attribute Name</th>
+      <th>Type</th>
+      <th>Units</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>age</td><td>Age</td><td>Numerical</td><td>years</td></tr>
+    <tr><td>2</td><td>bp</td><td>Blood Pressure</td><td>Numerical</td><td>mm/Hg</td></tr>
+    <tr><td>3</td><td>sg</td><td>Specific Gravity</td><td>Nominal</td><td>1.005, 1.010, 1.015, 1.020, 1.025</td></tr>
+    <tr><td>4</td><td>al</td><td>Albumin</td><td>Nominal</td><td>0, 1, 2, 3, 4, 5</td></tr>
+    <tr><td>5</td><td>su</td><td>Sugar</td><td>Nominal</td><td>0, 1, 2, 3, 4, 5</td></tr>
+    <tr><td>6</td><td>rbc</td><td>Red Blood Cells</td><td>Nominal</td><td>normal, abnormal</td></tr>
+    <tr><td>7</td><td>pc</td><td>Pus Cell</td><td>Nominal</td><td>normal, abnormal</td></tr>
+    <tr><td>8</td><td>pcc</td><td>Pus Cell Clumps</td><td>Nominal</td><td>present, notpresent</td></tr>
+    <tr><td>9</td><td>ba</td><td>Bacteria</td><td>Nominal</td><td>present, notpresent</td></tr>
+    <tr><td>10</td><td>bgr</td><td>Blood Glucose Random</td><td>Numerical</td><td>mgs/dl</td></tr>
+    <tr><td>11</td><td>bu</td><td>Blood Urea</td><td>Numerical</td><td>mgs/dl</td></tr>
+    <tr><td>12</td><td>sc</td><td>Serum Creatinine</td><td>Numerical</td><td>mgs/dl</td></tr>
+    <tr><td>13</td><td>sod</td><td>Sodium</td><td>Numerical</td><td>mEq/L</td></tr>
+    <tr><td>14</td><td>pot</td><td>Potassium</td><td>Numerical</td><td>mEq/L</td></tr>
+    <tr><td>15</td><td>hemo</td><td>Hemo-globin</td><td>Numerical</td><td>gms</td></tr>
+    <tr><td>16</td><td>pcv</td><td>Packed Cell Volume</td><td>Numerical</td><td>%</td></tr>
+    <tr><td>17</td><td>wc</td><td>White Blood Cell Count</td><td>Numerical</td><td>cells/cumm</td></tr>
+    <tr><td>18</td><td>rc</td><td>Red Blood Cell Count</td><td>Numerical</td><td>millions/cmm</td></tr>
+    <tr><td>19</td><td>htn</td><td>Hypertension</td><td>Nominal</td><td>yes, no</td></tr>
+    <tr><td>20</td><td>dm</td><td>Diabetes Mellitus</td><td>Nominal</td><td>yes, no</td></tr>
+    <tr><td>21</td><td>cad</td><td>Coronary Artery Disease</td><td>Nominal</td><td>yes, no</td></tr>
+    <tr><td>22</td><td>appet</td><td>Appetite</td><td>Nominal</td><td>good, poor</td></tr>
+    <tr><td>23</td><td>pe</td><td>Pedal Edema</td><td>Nominal</td><td>yes, no</td></tr>
+    <tr><td>24</td><td>ane</td><td>Anemia</td><td>Nominal</td><td>yes, no</td></tr>
+    <tr><td>25</td><td>class</td><td>Class</td><td>Nominal</td><td>ckd, notckd</td></tr>
+  </tbody>
 </table>
 
-<hr>
 <h2 id="5-data-preprocessing">5. Data Preprocessing</h2>
 <ul>
 <li>Nominal strings → numerical encoding.  </li>
