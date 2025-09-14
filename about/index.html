@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Performance, Projects, Perspective">
+  <title>About — shrishtinigam.github.io</title>
+  <link rel="stylesheet" href="C:/Users/meher/Projects/website-push/static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('mobile-nav');
+      nav.classList.toggle('open');
+    }
+  </script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="C:/Users/meher/Projects/website-push" class="brand">shrishtinigam.github.io</a>
+      <nav class="site-nav desktop-nav">
+        <a href="C:/Users/meher/Projects/website-push">Home</a>
+        <a href="C:/Users/meher/Projects/website-push">About</a>
+        <a href="C:/Users/meher/Projects/website-push">Projects</a>
+        <a href="C:/Users/meher/Projects/website-push">Posts</a>
+      </nav>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
+    <nav id="mobile-nav" class="site-nav mobile-nav">
+      <a href="C:/Users/meher/Projects/website-push" onclick="toggleMenu()">Home</a>
+      <a href="C:/Users/meher/Projects/website-push" onclick="toggleMenu()">About</a>
+      <a href="C:/Users/meher/Projects/website-push" onclick="toggleMenu()">Projects</a>
+      <a href="C:/Users/meher/Projects/website-push" onclick="toggleMenu()">Posts</a>
+    </nav>
+  </header>
+
+  <main>
+    
+<section class="about container">
+    <h2 class="section-heading">About Me</h2>
+    <div class="about-text">
+        <p>Glad you're here! I’m <strong>Meher</strong>, a software developer in the Risk and Quantitative Analysis (RQA) team at BlackRock. I joined the Core Risk Engineering (CRE) group after completing my bachelor’s degree and a brief stint at BMC Software. I like identifying and solving real problems using code. I am passionate about performance, and I like solving performance problems related to both, data-intensive and compute-intensive systems. During my undergrad, I published two IEEE conference papers on benchmarking large language models. Here are some milestones in my journey that I am proud of!</p>
+    </div>
+</section>
+
+<section class="container timeline">
+    <h2 class="section-heading">Milestones</h2>
+    <div class="timeline-container">
+
+        <div class="timeline-item">
+            <div class="timeline-date">Jan 2023</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <p><b>BMC</b> — Software Engineering Intern</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">Aug 2023</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <p>First <b>IEEE conference paper</b> — XLNet benchmarking (APSIT'23).</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">Jan 2024</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <p>Second <b>IEEE conference paper</b> — PaLM benchmarking (ICSCNA'23).</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">Jan 2024</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <p><b>BlackRock</b> — Software Engineering Intern.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">July 2024</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <p><b>BlackRock</b> — Full-time Software Engineer.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; Meher Shrishti Nigam — Powered by SSG (Python + Jinja)</p>
+    </div>
+  </footer>
+</body>
+
+</html>
