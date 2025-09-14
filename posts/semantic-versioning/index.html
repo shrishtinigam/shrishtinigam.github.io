@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Performance, Projects, Perspective">
   <title>Get 𝖲̶𝖾̶𝗆̶𝖺̶𝗇̶𝗍̶𝗂̶𝖼̶ Versioning Right in Your Python Library · shrishtinigam.github.io</title>
-  <link rel="stylesheet" href="C:/Users/meher/Projects/website-push/static/css/style.css">
+  <link rel="stylesheet" href="https://shrishtinigam.github.io/static/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -21,468 +21,382 @@
 <body>
   <header class="site-header">
     <div class="container header-container">
-      <a href="C:/Users/meher/Projects/website-push" class="brand">shrishtinigam.github.io</a>
+      <a href="https://shrishtinigam.github.io" class="brand">shrishtinigam.github.io</a>
       <nav class="site-nav desktop-nav">
-        <a href="C:/Users/meher/Projects/website-push">Home</a>
-        <a href="C:/Users/meher/Projects/website-push">About</a>
-        <a href="C:/Users/meher/Projects/website-push">Projects</a>
-        <a href="C:/Users/meher/Projects/website-push">Posts</a>
+        <a href="https://shrishtinigam.github.io">Home</a>
+        <a href="https://shrishtinigam.github.io">About</a>
+        <a href="https://shrishtinigam.github.io">Projects</a>
+        <a href="https://shrishtinigam.github.io">Posts</a>
       </nav>
       <button class="hamburger" onclick="toggleMenu()">☰</button>
     </div>
     <nav id="mobile-nav" class="site-nav mobile-nav">
-      <a href="C:/Users/meher/Projects/website-push" onclick="toggleMenu()">Home</a>
-      <a href="C:/Users/meher/Projects/website-push" onclick="toggleMenu()">About</a>
-      <a href="C:/Users/meher/Projects/website-push" onclick="toggleMenu()">Projects</a>
-      <a href="C:/Users/meher/Projects/website-push" onclick="toggleMenu()">Posts</a>
+      <a href="https://shrishtinigam.github.io" onclick="toggleMenu()">Home</a>
+      <a href="https://shrishtinigam.github.io" onclick="toggleMenu()">About</a>
+      <a href="https://shrishtinigam.github.io" onclick="toggleMenu()">Projects</a>
+      <a href="https://shrishtinigam.github.io" onclick="toggleMenu()">Posts</a>
     </nav>
   </header>
 
   <main>
+    
 
+<article class="post container">
+  <!-- Post Header -->
+  <header class="post-header">
+    <h1>Get 𝖲̶𝖾̶𝗆̶𝖺̶𝗇̶𝗍̶𝗂̶𝖼̶ Versioning Right in Your Python Library</h1>
+    
+    <p class="muted">Sep 14, 2025</p>
+    
+  </header>
 
-    <article class="post container">
-      <!-- Post Header -->
-      <header class="post-header">
-        <h1>Get <s>Semantic</s> Versioning Right in Your Python Library</h1>
+  <!-- Post Content -->
+  <div class="post-body">
+    <p>To understand how versioning works in Python interpreters and Python libraries, we must begin at the beginning. The first stable version of Python was released in early 1991, eleven years before I was born, and Python 2.0 was not released until after the dot-com crash. For comparision, SemVer was only introduced in 2009. The latest standardization of Python versioning didn't happen until mid to late 2010's. Lets unravel this timeline together.</p>
+<h2 id="so-what-is-software-versioning">So What is Software Versioning?</h2>
+<p>Software versioning can be defined simply -</p>
+<blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Software_versioning">Software versioning</a> is the process of assigning either unique version names or unique version numbers to unique states of computer software.</p>
+<p>A <a href="https://dhtmlx.com/blog/versioning-schemes-importance-web-development/">versioning scheme</a> is a practice of categorizing changes in a software product during its lifecycle. To put it simply, these are unique identifiers containing numbers (or letters) given to different software iterations.</p>
+</blockquote>
+<p>There is a large variety of version numbering schemes, including but not limited to
+- Semantic Versioning - <code>MAJOR.MINOR.PATCH</code> + strict standard rules
+- Calendar Versioning - <code>YY.MM</code> like Ubuntu or <code>YYYY.R</code> like Chrome
+- Marketing Versions - macOS - <code>Tahoe</code>, <code>Sequoia</code>, <code>Sonoma</code> etc, Android <code>Marhsmallow</code>, <code>Nougat</code>, <code>Oreo</code>
+- And most commonly, Hybrid Schemes, like <a href="https://openjdk.org/jeps/223">JEP:223 for Java</a>, <a href="https://peps.python.org/pep-0440/">PEP:440 for Python</a></p>
+<p>.. this list is by no means exhaustive.</p>
+<h2 id="okay-so-how-does-python-interpreter-versioning-work">Okay, So How Does Python Interpreter Versioning Work?</h2>
+<p>Is a question you didn't ask, but here is the answer anyway.</p>
+<h3 id="pep-602">PEP 602</h3>
+<p><a href="https://peps.python.org/pep-0602/">PEP 602</a> governs Python interpreter <strong>(CPython)</strong> releases starting with Python 3.9. It enforces a predictable annual release cycle, where a new feature version is release in October, once per year. </p>
+<p>The development cycle is set to ~17 months per feature version, and each release has a lifecyle of 5 years. This includes 2 years of full support, with bug fixes and security updates, and 3 years of security fixes (source-only releases). This model of versioned and scheduled releases is called a 'software release train'.</p>
+<blockquote>
+<p>A <a href="https://en.wikipedia.org/wiki/Software_versioning#Release_train">software release train</a> is a form of software release schedule in which a number of distinct series of versioned software releases for multiple products are released as a number of different "trains" on a regular schedule. Generally, for each product line, a number of different release trains are running at a given time, with each train moving from initial release to eventual maturity and retirement on a planned schedule.</p>
+</blockquote>
+<p>This standard simply: </p>
+<ul>
+  <li>Makes releases smaller</li>
+  <li>Puts features and bug fixes in hands of users sooner</li>
+  <li>Creates a predictable calendar for releases</li>
+</ul>
 
-        <p class="muted">Sep 14, 2025</p>
-
-      </header>
-
-      <!-- Post Content -->
-      <div class="post-body">
-        <p>To understand how versioning works in Python interpreters and Python libraries, we must begin at the
-          beginning. The first stable version of Python was released in early 1991, eleven years before I was born, and
-          Python 2.0 was not released until after the dot-com crash. For comparision, SemVer was only introduced in
-          2009. The latest standardization of Python versioning didn't happen until mid to late 2010's. Lets unravel
-          this timeline together.</p>
-        <h2 id="so-what-is-software-versioning">So What is Software Versioning?</h2>
-        <p>Software versioning can be defined simply -</p>
-        <blockquote>
-          <p><a href="https://en.wikipedia.org/wiki/Software_versioning">Software versioning</a> is the process of
-            assigning either unique version names or unique version numbers to unique states of computer software.</p>
-          <p>A <a href="https://dhtmlx.com/blog/versioning-schemes-importance-web-development/">versioning scheme</a> is
-            a practice of categorizing changes in a software product during its lifecycle. To put it simply, these are
-            unique identifiers containing numbers (or letters) given to different software iterations.</p>
-        </blockquote>
-        <p>There is a large variety of version numbering schemes, including but not limited to
-          - Semantic Versioning - <code>MAJOR.MINOR.PATCH</code> + strict standard rules
-          - Calendar Versioning - <code>YY.MM</code> like Ubuntu or <code>YYYY.R</code> like Chrome
-          - Marketing Versions - macOS - <code>Tahoe</code>, <code>Sequoia</code>, <code>Sonoma</code> etc, Android
-          <code>Marhsmallow</code>, <code>Nougat</code>, <code>Oreo</code>
-          - And most commonly, Hybrid Schemes, like <a href="https://openjdk.org/jeps/223">JEP:223 for Java</a>, <a
-            href="https://peps.python.org/pep-0440/">PEP:440 for Python</a></p>
-        <p>.. this list is by no means exhaustive.</p>
-        <h2 id="okay-so-how-does-python-interpreter-versioning-work">Okay, So How Does Python Interpreter Versioning
-          Work?</h2>
-        <p>Is a question you didn't ask, but here is the answer anyway.</p>
-        <h3 id="pep-602">PEP 602</h3>
-        <p><a href="https://peps.python.org/pep-0602/">PEP 602</a> governs Python interpreter <strong>(CPython)</strong>
-          releases starting with Python 3.9. It enforces a predictable annual release cycle, where a new feature version
-          is release in October, once per year. </p>
-        <p>The development cycle is set to ~17 months per feature version, and each release has a lifecyle of 5 years.
-          This includes 2 years of full support, with bug fixes and security updates, and 3 years of security fixes
-          (source-only releases). This model of versioned and scheduled releases is called a 'software release train'.
-        </p>
-        <blockquote>
-          <p>A <a href="https://en.wikipedia.org/wiki/Software_versioning#Release_train">software release train</a> is a
-            form of software release schedule in which a number of distinct series of versioned software releases for
-            multiple products are released as a number of different "trains" on a regular schedule. Generally, for each
-            product line, a number of different release trains are running at a given time, with each train moving from
-            initial release to eventual maturity and retirement on a planned schedule.</p>
-        </blockquote>
-        <p>This standard simply: </p>
-        <ul>
-          <li>Makes releases smaller</li>
-          <li>Puts features and bug fixes in hands of users sooner</li>
-          <li>Creates a predictable calendar for releases</li>
-        </ul>
-
-        <p>The versioning works like - </p>
-        <div style="text-align: center;">
-          <b>[major].[minor].[micro][pre-release]</b>
-        </div>
-        <p><br></p>
-        <ol>
-          <li><strong>Major</strong> → Big changes, only happened from 1 → 2 → 3 (Python 4 is not planned anytime soon)
-          </li>
-          <li><strong>Minor</strong> → Annual Feature Releases (since PEP 602)</li>
-          <li><strong>Micro</strong> → Patch/BugFixes, Maintainance releases, typically released ~2 months </li>
-          <li><strong>Pre-release</strong> → a (alpha), b (beta), rc (release candidate)</li>
-        </ol>
-        <p>Of course, dev releases also exist. Feel free to read about the cool incremental additions to Python
-          Interpreter in the last few releases.</p>
-        <h3 id="pep-387">PEP 387</h3>
-        <p>All this sounds fantastic, but this is where it a few questions arise. How backwards compatible are these
-          'stable' releases? How much code would I have to refactor (or should I be refactoring) with every new release
-          - especially since each release is supported for only 5 years? (a brief period of time in terms of enterprise
-          software). Thankfully, PEP 387 outlines this policy in detail.</p>
-        <blockquote>
-          <p>This <a href="https://peps.python.org/pep-0387/">PEP</a> takes the perspective that “backwards
-            incompatibility” means preexisting code ceases to comparatively function after a change.</p>
-        </blockquote>
-        <p>The basic policy dictates the following:</p>
-        <ol>
-          <li>No incompatible changes between consecutive releases unless:
-            <ul>
-              <li>Proper deprecation warnings are provided</li>
-              <li>The change has high benefit relative to breakage</li>
-            </ul>
-          </li>
-          <li>Deprecation periods typically last at least 2 years, often 5 years for practical purposes.</li>
-          <li>The Steering Council can grant exceptions for urgent security issues or obsolete features.</li>
-        </ol>
-        <p>An example of this deprecation is the <code>collections</code> import style. It was officially deprecated in
-          Python 3.9 and removed later. Warning are used to slowly warn developers of the changes. This includes
-          <code>PendingDeprecationWarning</code> and <code>DeprecationWarning</code>.</p>
-        <pre class="codehilite"><code class="language-python"># Old way (deprecated)
+<p>The versioning works like -  </p>
+<div style="text-align: center;">
+  <b>[major].[minor].[micro][pre-release]</b>
+</div>
+<p><br></p>
+<ol>
+<li><strong>Major</strong> → Big changes, only happened from 1 → 2 → 3 (Python 4 is not planned anytime soon)</li>
+<li><strong>Minor</strong> → Annual Feature Releases (since PEP 602)</li>
+<li><strong>Micro</strong> → Patch/BugFixes, Maintainance releases, typically released ~2 months </li>
+<li><strong>Pre-release</strong> → a (alpha), b (beta), rc (release candidate)</li>
+</ol>
+<p>Of course, dev releases also exist. Feel free to read about the cool incremental additions to Python Interpreter in the last few releases.</p>
+<h3 id="pep-387">PEP 387</h3>
+<p>All this sounds fantastic, but this is where it a few questions arise. How backwards compatible are these 'stable' releases? How much code would I have to refactor (or should I be refactoring) with every new release - especially since each release is supported for only 5 years? (a brief period of time in terms of enterprise software). Thankfully, PEP 387 outlines this policy in detail.</p>
+<blockquote>
+<p>This <a href="https://peps.python.org/pep-0387/">PEP</a> takes the perspective that “backwards incompatibility” means preexisting code ceases to comparatively function after a change.</p>
+</blockquote>
+<p>The basic policy dictates the following:</p>
+<ol>
+<li>No incompatible changes between consecutive releases unless:
+    <ul>
+        <li>Proper deprecation warnings are provided</li>
+        <li>The change has high benefit relative to breakage</li>
+    </ul></li>
+<li>Deprecation periods typically last at least 2 years, often 5 years for practical purposes.</li>
+<li>The Steering Council can grant exceptions for urgent security issues or obsolete features.</li>
+</ol>
+<p>An example of this deprecation is the <code>collections</code> import style. It was officially deprecated in Python 3.9 and removed later. Warning are used to slowly warn developers of the changes. This includes <code>PendingDeprecationWarning</code> and <code>DeprecationWarning</code>.</p>
+<pre class="codehilite"><code class="language-python"># Old way (deprecated)
 from collections import Iterable
 # Recommended new way
 from collections.abc import Iterable
 </code></pre>
 
-        <h2 id="right-what-about-python-libraries">Right, What About Python Libraries?</h2>
-        <p>Great question, we are getting there. Python <strong>library</strong> versioning is not dictated by the
-          Python core team. Thus, each library author is free to decide how to version their
-          library releases. That said, libraries follow <a href="https://peps.python.org/pep-0440/">PEP 440</a>, which
-          puts down the official Python versioning standards for Python libraries and packages.</p>
-        <p>PEP 440 formalizes a semantic versioning-<em>like</em> <strong>(IT'S NOT SEMVER)</strong> system, stating
-          that the version identifiers must comply with this scheme:</p>
-        <div style="text-align: center;">
-          <b>[N!]N(.N)*[{a|b|rc}N][.postN][.devN] </b>
-        </div>
-        <p><br></p>
-        <p>Public version identifiers are separated into up to <a
-            href="https://packaging.python.org/en/latest/specifications/version-specifiers/">five segments</a>:</p>
-        <ol>
-          <li>
-            <p><strong>Epoch segment: N!</strong></p>
-            <ul>
-              <li>This is used very rarely, and its primary purpose is to reset the version numbering. I won't go into
-                detail about this.</li>
-            </ul>
-          </li>
-          <li>
-            <p><strong>Release segment: N(.N)</strong></p>
-            <ul>
-              <li>The main version numbers, usually in <code>major.minor.micro</code> format. Eg: <code>2.1.3</code>
-              </li>
-              <li>Sometimes <code>major.minor</code> is also used.</li>
-            </ul>
-          </li>
-          <li>
-            <p><strong>Pre-release segment: {a|b|rc}N</strong></p>
-            <ul>
-              <li>Marks alpha, beta, or release candidate versions.</li>
-              <li>Excluded by default unless explicitly requested.</li>
-              <li>Examples:<ul>
-                  <li>1.0a1 → first alpha of version 1.0</li>
-                  <li>2.0b2 → second beta of version 2.0</li>
-                  <li>3.1rc1 → first release candidate of 3.1</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <p><strong>Post-release segment: .postN</strong></p>
-            <ul>
-              <li>Marks minor fixes after a release. </li>
-              <li>Often used for metadata, not functional changes.</li>
-              <li>Discouraged for actual code fixes.</li>
-              <li>Example: 1.0.post1 → first post-release of version 1.0</li>
-            </ul>
-          </li>
-          <li>
-            <p>Development release segment: .devN</p>
-            <ul>
-              <li>Marks ongoing development versions that are not yet stable.</li>
-              <li>Example: 1.0.dev1 → first development build of version 1.0</li>
-              <li>Example: 2.0.0.dev5 → fifth development build of version 2.0.0</li>
-            </ul>
-          </li>
-        </ol>
-        <p>PEP 440 also allows date-based versions, which can be handy for automated builds.</p>
-        <ul>
-          <li>Example: 2025.09 → September 2025 release</li>
-          <li>Example: 2025.09.14 → September 14, 2025 release</li>
-        </ul>
-        <p>While the scheme allows many segments, most libraries use two or three components:</p>
-        <ul>
-          <li>Major.Minor: 1.2 → Major release 1, minor update 2</li>
-          <li>Major.Minor.Micro: 1.2.3 → Major 1, minor 2, micro 3 (typical for bug fixes)</li>
-        </ul>
-        <p><strong>Stable releases</strong> are just the main numbers:</p>
-        <div style="text-align: center;">
-          <b>N(.N)*</b>
-        </div>
+<h2 id="right-what-about-python-libraries">Right, What About Python Libraries?</h2>
+<p>Great question, we are getting there. Python <strong>library</strong> versioning is not dictated by the Python core team. Thus, each library author is free to decide how to version their 
+library releases. That said, libraries follow <a href="https://peps.python.org/pep-0440/">PEP 440</a>, which puts down the official Python versioning standards for Python libraries and packages.</p>
+<p>PEP 440 formalizes a semantic versioning-<em>like</em> <strong>(IT'S NOT SEMVER)</strong> system, stating that the version identifiers must comply with this scheme:</p>
+<div style="text-align: center;">
+<b>[N!]N(.N)*[{a|b|rc}N][.postN][.devN] </b>
+</div>
+<p><br></p>
+<p>Public version identifiers are separated into up to <a href="https://packaging.python.org/en/latest/specifications/version-specifiers/">five segments</a>:</p>
+<ol>
+<li>
+<p><strong>Epoch segment: N!</strong></p>
+<ul>
+<li>This is used very rarely, and its primary purpose is to reset the version numbering. I won't go into detail about this.</li>
+</ul>
+</li>
+<li>
+<p><strong>Release segment: N(.N)</strong></p>
+<ul>
+<li>The main version numbers, usually in <code>major.minor.micro</code> format. Eg: <code>2.1.3</code></li>
+<li>Sometimes <code>major.minor</code> is also used.</li>
+</ul>
+</li>
+<li>
+<p><strong>Pre-release segment: {a|b|rc}N</strong></p>
+<ul>
+<li>Marks alpha, beta, or release candidate versions.</li>
+<li>Excluded by default unless explicitly requested.</li>
+<li>Examples:<ul>
+<li>1.0a1 → first alpha of version 1.0</li>
+<li>2.0b2 → second beta of version 2.0</li>
+<li>3.1rc1 → first release candidate of 3.1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Post-release segment: .postN</strong></p>
+<ul>
+<li>Marks minor fixes after a release. </li>
+<li>Often used for metadata, not functional changes.</li>
+<li>Discouraged for actual code fixes.</li>
+<li>Example: 1.0.post1 → first post-release of version 1.0</li>
+</ul>
+</li>
+<li>
+<p>Development release segment: .devN</p>
+<ul>
+<li>Marks ongoing development versions that are not yet stable.</li>
+<li>Example: 1.0.dev1 → first development build of version 1.0</li>
+<li>Example: 2.0.0.dev5 → fifth development build of version 2.0.0</li>
+</ul>
+</li>
+</ol>
+<p>PEP 440 also allows date-based versions, which can be handy for automated builds.</p>
+<ul>
+<li>Example: 2025.09 → September 2025 release</li>
+<li>Example: 2025.09.14 → September 14, 2025 release</li>
+</ul>
+<p>While the scheme allows many segments, most libraries use two or three components:</p>
+<ul>
+<li>Major.Minor: 1.2 → Major release 1, minor update 2</li>
+<li>Major.Minor.Micro: 1.2.3 → Major 1, minor 2, micro 3 (typical for bug fixes)</li>
+</ul>
+<p><strong>Stable releases</strong> are just the main numbers:</p>
+<div style="text-align: center;">
+<b>N(.N)*</b>
+</div>
 
-        <h3 id="my-job-its-just-pip">.. My Job? It's Just <code>pip</code></h3>
-        <p>When you run the simple command </p>
-        <pre class="codehilite"><code class="language-bash">pip install numpy
+<h3 id="my-job-its-just-pip">.. My Job? It's Just <code>pip</code></h3>
+<p>When you run the simple command </p>
+<pre class="codehilite"><code class="language-bash">pip install numpy
 </code></pre>
 
-        <p>or</p>
-        <pre class="codehilite"><code class="language-bash">pip install requirements.txt
+<p>or</p>
+<pre class="codehilite"><code class="language-bash">pip install requirements.txt
 </code></pre>
 
-        <p>or if you're using <code>pyproject.toml</code></p>
-        <pre class="codehilite"><code class="language-bash">pip install .
+<p>or if you're using <code>pyproject.toml</code></p>
+<pre class="codehilite"><code class="language-bash">pip install .
 </code></pre>
 
-        <p>what’s actually happening behind the scenes is called <a
-            href="https://pip.pypa.io/en/stable/topics/dependency-resolution/">dependency resolution</a>.</p>
-        <blockquote>
-          <p>pip is capable of determining and installing the dependencies of packages. The process of determining which
-            version of a dependency to install is known as dependency resolution.</p>
-        </blockquote>
-        <p>Most Python packages need other packages to work, which they declare as <code>dependencies</code>.
-          <code>numpy</code> may require <code>mkl</code> to work, <code>pandas</code> requires <code>numpy</code> to
-          work, <code>seaborn</code> required <code>pandas</code> to work and so on, leading to a
-          <code>dependency tree</code>.</p>
-        <p>When you run <code>pip install .</code>, pip does the following:</p>
-        <ol>
-          <li>Selects the requested packages.</li>
-          <li>Looks up the dependencies of each package.</li>
-          <li>Repeats the process recursively for dependencies of dependencies.</li>
-          <li>Tries to find compatible versions of packages.</li>
-        </ol>
-        <p>This sounds simple, but it gets complicated quickly.</p>
-        <p>If <code>pip</code> finds incompatible versions, it <strong>backtracks</strong>, i.e., tries older versions
-          until it finds a combination that works. This is why sometimes <code>pip</code> seems to download multiple
-          versions of the same package. It's just testing versions to find a compatible set. Even after backtracking,
-          pip might not be able to find a version that is compatible which raises a <strong>version conflict</strong>.
-        </p>
-        <blockquote>
-          <p>A version conflict happens when two or more Python packages you want to install depend on different
-            versions of the same library, and there is no single version that satisfies all of them. </p>
-        </blockquote>
-        <p><code>pip</code> can’t magically install multiple versions of the same package in the same environment, so it
-          raises an error. Suppose you have the following dependencies:
-          - Package A requires numpy &gt;= 1.25.0
-          - Package B requires numpy &lt; 1.24.0
-          In this case, there is no version of numpy that satisfies both. <code>pip</code> throws a
-          <code>ResolutionImpossible</code> error.</p>
-        <details>
+<p>what’s actually happening behind the scenes is called <a href="https://pip.pypa.io/en/stable/topics/dependency-resolution/">dependency resolution</a>.</p>
+<blockquote>
+<p>pip is capable of determining and installing the dependencies of packages. The process of determining which version of a dependency to install is known as dependency resolution.</p>
+</blockquote>
+<p>Most Python packages need other packages to work, which they declare as <code>dependencies</code>. <code>numpy</code> may require <code>mkl</code> to work, <code>pandas</code> requires <code>numpy</code> to work, <code>seaborn</code> required <code>pandas</code> to work and so on, leading to a <code>dependency tree</code>.</p>
+<p>When you run <code>pip install .</code>, pip does the following:</p>
+<ol>
+<li>Selects the requested packages.</li>
+<li>Looks up the dependencies of each package.</li>
+<li>Repeats the process recursively for dependencies of dependencies.</li>
+<li>Tries to find compatible versions of packages.</li>
+</ol>
+<p>This sounds simple, but it gets complicated quickly.</p>
+<p>If <code>pip</code> finds incompatible versions, it <strong>backtracks</strong>, i.e., tries older versions until it finds a combination that works. This is why sometimes <code>pip</code> seems to download multiple versions of the same package. It's just testing versions to find a compatible set. Even after backtracking, pip might not be able to find a version that is compatible which raises a <strong>version conflict</strong>. </p>
+<blockquote>
+<p>A version conflict happens when two or more Python packages you want to install depend on different versions of the same library, and there is no single version that satisfies all of them. </p>
+</blockquote>
+<p><code>pip</code> can’t magically install multiple versions of the same package in the same environment, so it raises an error. Suppose you have the following dependencies:
+- Package A requires numpy &gt;= 1.25.0
+- Package B requires numpy &lt; 1.24.0
+In this case, there is no version of numpy that satisfies both. <code>pip</code> throws a <code>ResolutionImpossible</code> error.</p>
+<details>
 
-          <h4>Why Version Conflicts Happen</h4>
-          <ul>
-            <li>Pinned versions – Some packages explicitly require a very specific version (e.g., numpy==1.23.0), which
-              reduces flexibility.</li>
-            <li>Fast-moving libraries – Libraries like pandas, scikit-learn, and tensorflow release updates frequently,
-              sometimes breaking compatibility with older dependencies.</li>
-            <li>Transitive dependencies – Packages often depend on other packages (and those have their own
-              dependencies), which can lead to chains of conflicts.</li>
-          </ul>
+<h4>Why Version Conflicts Happen</h4>
+<ul>
+  <li>Pinned versions – Some packages explicitly require a very specific version (e.g., numpy==1.23.0), which reduces flexibility.</li>
+  <li>Fast-moving libraries – Libraries like pandas, scikit-learn, and tensorflow release updates frequently, sometimes breaking compatibility with older dependencies.</li>
+  <li>Transitive dependencies – Packages often depend on other packages (and those have their own dependencies), which can lead to chains of conflicts.</li>
+</ul>
 
-          <h4>How to Solve Version Conflicts</h4>
-          <ul>
-            <li>Audit your top-level requirements – Remove unnecessary or overly strict version pins.</li>
-            <li>Loosen version constraints – Instead of numpy==1.23.0, try numpy>=1.23.0,&lt;2.0.</li>
-            <li>Use a virtual environment – Keeps each project isolated.</li>
-            <li>Use a lockfile – Tools like pip-tools or poetry can lock exact working versions to avoid conflicts.</li>
-            <li>Check the dependency tree – You can inspect dependencies using:
-              <pre><code>pip show package_name
+<h4>How to Solve Version Conflicts</h4>
+<ul>
+  <li>Audit your top-level requirements – Remove unnecessary or overly strict version pins.</li>
+  <li>Loosen version constraints – Instead of numpy==1.23.0, try numpy>=1.23.0,&lt;2.0.</li>
+  <li>Use a virtual environment – Keeps each project isolated.</li>
+  <li>Use a lockfile – Tools like pip-tools or poetry can lock exact working versions to avoid conflicts.</li>
+  <li>Check the dependency tree – You can inspect dependencies using:
+    <pre><code>pip show package_name
 pipdeptree
 </code></pre>
-            </li>
-          </ul>
+  </li>
+</ul>
 
-          <h4>Reducing Backtracking</h4>
-          <p>Excessive backtracking can make installs slow. You can let pip resolve the dependencies, or you can help
-            pip by:</p>
-          <ul>
-            <li>Constraining versions – Tell pip to only consider versions within a certain range. This narrows the
-              search space and speeds up resolution.</li>
-            <li>Loosen overly strict version pins – If you’ve pinned packages too tightly, pip may struggle to find
-              compatible versions. Relaxing bounds lets pip find a working combination more easily.</li>
-            <li>Use constraint or lock files – Constraint files let you fix versions for dependencies, including
-              transitive ones, without modifying your main requirements.</li>
-            <li>Use the --upgrade flag – Forcing pip to consider the latest versions of installed packages can prevent
-              unnecessary backtracking (to be used with caution, as you would need to ensure your code is compatible
-              with the latest API).</li>
-          </ul>
+<h4>Reducing Backtracking</h4>
+<p>Excessive backtracking can make installs slow. You can let pip resolve the dependencies, or you can help pip by:</p>
+<ul>
+  <li>Constraining versions – Tell pip to only consider versions within a certain range. This narrows the search space and speeds up resolution.</li>
+  <li>Loosen overly strict version pins – If you’ve pinned packages too tightly, pip may struggle to find compatible versions. Relaxing bounds lets pip find a working combination more easily.</li>
+  <li>Use constraint or lock files – Constraint files let you fix versions for dependencies, including transitive ones, without modifying your main requirements.</li>
+  <li>Use the --upgrade flag – Forcing pip to consider the latest versions of installed packages can prevent unnecessary backtracking (to be used with caution, as you would need to ensure your code is compatible with the latest API).</li>
+</ul>
 
 
-        </details>
+</details>
 
-        <p>I hope you noticed the irony too. Make the dependencies too loose, and your resolution time increases or
-          worse, pip resolves an incompatible version. Make it too tight, and there is a chances your transitive
-          dependencies may throw a version conflict or it may take pip a long time to ensure everything fits.</p>
-        <h2 id="how-does-semantic-versioning-come-into-picture">How Does Semantic Versioning Come Into Picture?</h2>
-        <p><a href="https://semver.org/">SemVer</a> was introduced in 2009 by GitHub co-founder Tom Preston-Werner, and
-          is a widely accpeted standard. It is important to note that Python Package versioning and <code>pip</code>
-          does not follow SemVer. <strong>PEP 440 says nothing about API stability.</strong> It only defines how
-          versions are formatted and compared. </p>
-        <p><code>pip</code> mostly does <strong>numeric comparisions</strong> of version numbers, guided by PEP 440.
-          <code>pip</code> won’t stop you from installing a "breaking" major version unless your requirements explicitly
-          forbid it.</p>
-        <pre class="codehilite"><code class="language-bash">pip install &quot;package&gt;=1.0,&lt;2.0&quot;
+<p>I hope you noticed the irony too. Make the dependencies too loose, and your resolution time increases or worse, pip resolves an incompatible version. Make it too tight, and there is a chances your transitive dependencies may throw a version conflict or it may take pip a long time to ensure everything fits.</p>
+<h2 id="how-does-semantic-versioning-come-into-picture">How Does Semantic Versioning Come Into Picture?</h2>
+<p><a href="https://semver.org/">SemVer</a> was introduced in 2009 by GitHub co-founder Tom Preston-Werner, and is a widely accpeted standard. It is important to note that Python Package versioning and <code>pip</code> does not follow SemVer. <strong>PEP 440 says nothing about API stability.</strong> It only defines how versions are formatted and compared. </p>
+<p><code>pip</code> mostly does <strong>numeric comparisions</strong> of version numbers, guided by PEP 440. <code>pip</code> won’t stop you from installing a "breaking" major version unless your requirements explicitly forbid it.</p>
+<pre class="codehilite"><code class="language-bash">pip install &quot;package&gt;=1.0,&lt;2.0&quot;
 </code></pre>
 
-        <p>So when it comes to package versions, unfortunately SemVer is not enforced.</p>
-        <h2 id="um-how-should-i-version-my-libraries">Um, How Should I Version My Libraries?</h2>
-        <p>The best practice for Python's flexible versioning specifications is to follow a three part scheme like
-          SemVer. SemVer is a standard choice as it is easy to understand and pick up. Even if you have not read its
-          documentation, its simply intuitive. It also helps in dependency resolution, as we can standardize what is
-          backwards compatible, and what is not.</p>
-        <p>Although Python does not fully support SemVer's guidelines, the following rules are recommended.</p>
-        <div style="text-align: center;">
-          <b>[MAJOR].[MINOR].[PATCH]</b>
-        </div>
-        <p><br></p>
-        <ul>
-          <li>MAJOR → backward-incompatible changes.</li>
-          <li>MINOR → backward-compatible features.</li>
-          <li>PATCH → backward-compatible bug fixes.</li>
-        </ul>
-        <h3 id="how-pandas-uses-a-semver-variant">How Pandas uses a SemVer Variant</h3>
-        <p>I am providing an example of a popular library and its <a
-            href="https://pandas.pydata.org/docs/development/policies.html">versioning policy</a> here to provide some
-          perspective. </p>
-        <ul>
-          <li>Follows a loose SemVer with MAJOR.MINOR.PATCH.</li>
-          <li>Major releases: Can introduce breaking API changes, with migration guidance.</li>
-          <li>Minor releases: Introduce deprecations that warn users but preserve current behavior.</li>
-          <li>Patch releases: Do not add new deprecations; may include bug fixes.</li>
-          <li>Deprecated behavior remains until the next major release (e.g., deprecated in 1.2.x, removed in 2.0.0).
-          </li>
-          <li>Experimental features: Behavior may change at any time.</li>
-          <li>Judgement is used to classify bug fixes vs. API-breaking changes, with community input encouraged.</li>
-        </ul>
+<p>So when it comes to package versions, unfortunately SemVer is not enforced.</p>
+<h2 id="um-how-should-i-version-my-libraries">Um, How Should I Version My Libraries?</h2>
+<p>The best practice for Python's flexible versioning specifications is to follow a three part scheme like SemVer. SemVer is a standard choice as it is easy to understand and pick up. Even if you have not read its documentation, its simply intuitive. It also helps in dependency resolution, as  we can standardize what is backwards compatible, and what is not.</p>
+<p>Although Python does not fully support SemVer's guidelines, the following rules are recommended.</p>
+<div style="text-align: center;">
+  <b>[MAJOR].[MINOR].[PATCH]</b>
+</div>
+<p><br></p>
+<ul>
+<li>MAJOR → backward-incompatible changes.</li>
+<li>MINOR → backward-compatible features.</li>
+<li>PATCH → backward-compatible bug fixes.</li>
+</ul>
+<h3 id="how-pandas-uses-a-semver-variant">How Pandas uses a SemVer Variant</h3>
+<p>I am providing an example of a popular library and its <a href="https://pandas.pydata.org/docs/development/policies.html">versioning policy</a> here to provide some perspective. </p>
+<ul>
+  <li>Follows a loose SemVer with MAJOR.MINOR.PATCH.</li>
+  <li>Major releases: Can introduce breaking API changes, with migration guidance.</li>
+  <li>Minor releases: Introduce deprecations that warn users but preserve current behavior.</li>
+  <li>Patch releases: Do not add new deprecations; may include bug fixes.</li>
+  <li>Deprecated behavior remains until the next major release (e.g., deprecated in 1.2.x, removed in 2.0.0).</li>
+  <li>Experimental features: Behavior may change at any time.</li>
+  <li>Judgement is used to classify bug fixes vs. API-breaking changes, with community input encouraged.</li>
+</ul>
 
-        <h3 id="modern-minimum-build-system-requirements-pep-518">Modern Minimum Build System Requirements - PEP 518
-        </h3>
-        <p><a href="https://peps.python.org/pep-0518/">PEP 518</a> defines a standard way for Python projects to declare
-          their build dependencies in a separate configuration file, rather than relying on setup.py. </p>
-        <p>Historically, distutils and setuptools used executable setup.py scripts to build distributions. The PEP
-          resolves this by allowing projects to declaratively list the minimal dependencies needed for the build system,
-          so tools like pip can install them upfront. There are more details, which you can read about in PEP 517/518.
-        </p>
-        <p>The pyproject.toml file is a configuration file standard for Python projects, defined by this PEP. It uses
-          the TOML (Tom's Obvious, Minimal Language) format, which is designed to be human-readable and easy to parse.
-          This is adopted by newer libraries like <code>poetry</code> and <code>flit</code>, that help your create these
-          dependencies. </p>
-        <h2 id="conclusion">Conclusion</h2>
-        <table border="1" cellpadding="8" cellspacing="0">
-          <thead>
-            <tr>
-              <th>Aspect</th>
-              <th>Standard Practice</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Versioning</td>
-              <td>PEP 440 / non-enforced SemVer</td>
-            </tr>
-            <tr>
-              <td>Dependency declaration</td>
-              <td>pyproject.toml (modern), setup.py (older projects)</td>
-            </tr>
-            <tr>
-              <td>Dev dependencies</td>
-              <td>optional-dependencies in pyproject.toml or requirements-dev.txt</td>
-            </tr>
-            <tr>
-              <td>Locking dependencies</td>
-              <td>Use pip-tools (requirements.txt + requirements.lock) or poetry.lock</td>
-            </tr>
-            <tr>
-              <td>Build / distribution</td>
-              <td>python -m build to generate .whl and .tar.gz</td>
-            </tr>
-          </tbody>
-        </table>
+<h3 id="modern-minimum-build-system-requirements-pep-518">Modern Minimum Build System Requirements - PEP 518</h3>
+<p><a href="https://peps.python.org/pep-0518/">PEP 518</a> defines a standard way for Python projects to declare their build dependencies in a separate configuration file, rather than relying on setup.py. </p>
+<p>Historically, distutils and setuptools used executable setup.py scripts to build distributions. The PEP resolves this by allowing projects to declaratively list the minimal dependencies needed for the build system, so tools like pip can install them upfront. There are more details, which you can read about in PEP 517/518.</p>
+<p>The pyproject.toml file is a configuration file standard for Python projects, defined by this PEP. It uses the TOML (Tom's Obvious, Minimal Language) format, which is designed to be human-readable and easy to parse. This is adopted by newer libraries like <code>poetry</code> and <code>flit</code>, that help your create these dependencies. </p>
+<h2 id="conclusion">Conclusion</h2>
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Aspect</th>
+      <th>Standard Practice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Versioning</td>
+      <td>PEP 440 / non-enforced SemVer</td>
+    </tr>
+    <tr>
+      <td>Dependency declaration</td>
+      <td>pyproject.toml (modern), setup.py (older projects)</td>
+    </tr>
+    <tr>
+      <td>Dev dependencies</td>
+      <td>optional-dependencies in pyproject.toml or requirements-dev.txt</td>
+    </tr>
+    <tr>
+      <td>Locking dependencies</td>
+      <td>Use pip-tools (requirements.txt + requirements.lock) or poetry.lock</td>
+    </tr>
+    <tr>
+      <td>Build / distribution</td>
+      <td>python -m build to generate .whl and .tar.gz</td>
+    </tr>
+  </tbody>
+</table>
 
-        <p>And there you have it: follow SemVer's Major-Minor-Patch and backwards compatibility rules, don't assume
-          everyone else follows them, read the versioning scheme policy docs of the libraries you are using, and use
-          pyproject.toml.</p>
-        <p>Now release that package you've been postponing!</p>
-        <p><br><br></p>
-        <h2 id="ps-commit-style">PS: Commit Style</h2>
-        <p>This part of the article is something I care about deeply personally but mostly unrelated to the rest. When
-          SemVer is applied to commit messages, it helps maintain consistent, meaningful, and easy-to-understand commit
-          histories. Weather you are a "commit everything in one go" or a "small incremental features" person, the core
-          idea behind this style is to categorize commits based on their impact, and help in automated generation of
-          changelogs and releases.</p>
-        <p>Ultimately, it helps me maintain a clean Git history. This is the format I follow generally, and helps me
-          jump around my commits, as I know what was added or deleted in each commit. I hope this helps you write better
-          commits.</p>
-        <table border="1" cellpadding="8" cellspacing="0">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Purpose</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>feat:</td>
-              <td>Adds a new feature</td>
-            </tr>
-            <tr>
-              <td>fix:</td>
-              <td>Fixes a bug</td>
-            </tr>
-            <tr>
-              <td>chore:</td>
-              <td>Maintenance tasks</td>
-            </tr>
-            <tr>
-              <td>build:</td>
-              <td>Build system or dependencies</td>
-            </tr>
-            <tr>
-              <td>docs:</td>
-              <td>Documentation updates</td>
-            </tr>
-            <tr>
-              <td>perf:</td>
-              <td>Performance improvements</td>
-            </tr>
-            <tr>
-              <td>refactor:</td>
-              <td>Code refactoring</td>
-            </tr>
-            <tr>
-              <td>style:</td>
-              <td>Code formatting</td>
-            </tr>
-            <tr>
-              <td>test:</td>
-              <td>Adding or modifying tests</td>
-            </tr>
-            <tr>
-              <td>ci:</td>
-              <td>CI/CD changes</td>
-            </tr>
-            <tr>
-              <td>revert:</td>
-              <td>Reverting a commit</td>
-            </tr>
-            <tr>
-              <td>BREAKING CHANGE:</td>
-              <td>Major breaking changes</td>
-            </tr>
-          </tbody>
-        </table>
+<p>And there you have it: follow SemVer's Major-Minor-Patch and backwards compatibility rules, don't assume everyone else follows them, read the versioning scheme policy docs of the libraries you are using, and use pyproject.toml.</p>
+<p>Now release that package you've been postponing!</p>
+<p><br><br></p>
+<h2 id="ps-commit-style">PS: Commit Style</h2>
+<p>This part of the article is something I care about deeply personally but mostly unrelated to the rest. When SemVer is applied to commit messages, it helps maintain consistent, meaningful, and easy-to-understand commit histories. Weather you are a "commit everything in one go" or a "small incremental features" person, the core idea behind this style is to categorize commits based on their impact, and help in automated generation of changelogs and releases.</p>
+<p>Ultimately, it helps me maintain a clean Git history. This is the format I follow generally, and helps me jump around my commits, as I know what was added or deleted in each commit. I hope this helps you write better commits.</p>
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>feat:</td>
+      <td>Adds a new feature</td>
+    </tr>
+    <tr>
+      <td>fix:</td>
+      <td>Fixes a bug</td>
+    </tr>
+    <tr>
+      <td>chore:</td>
+      <td>Maintenance tasks</td>
+    </tr>
+    <tr>
+      <td>build:</td>
+      <td>Build system or dependencies</td>
+    </tr>
+    <tr>
+      <td>docs:</td>
+      <td>Documentation updates</td>
+    </tr>
+    <tr>
+      <td>perf:</td>
+      <td>Performance improvements</td>
+    </tr>
+    <tr>
+      <td>refactor:</td>
+      <td>Code refactoring</td>
+    </tr>
+    <tr>
+      <td>style:</td>
+      <td>Code formatting</td>
+    </tr>
+    <tr>
+      <td>test:</td>
+      <td>Adding or modifying tests</td>
+    </tr>
+    <tr>
+      <td>ci:</td>
+      <td>CI/CD changes</td>
+    </tr>
+    <tr>
+      <td>revert:</td>
+      <td>Reverting a commit</td>
+    </tr>
+    <tr>
+      <td>BREAKING CHANGE:</td>
+      <td>Major breaking changes</td>
+    </tr>
+  </tbody>
+</table>
 
-        <p><br></p>
-        <details>
+<p><br></p>
+<details>
 
-          I remember being 11-12 years old, sitting at a restaurant with my brother while he was reciting different
-          Andriod versions for me. Each candy-named version evoked a higher pitched laughter, and this remains a fond
-          memory of mine.
+I remember being 11-12 years old, sitting at a restaurant with my brother while he was reciting different Andriod versions for me. Each candy-named version evoked a higher pitched laughter, and this remains a fond memory of mine. 
 
-        </details>
-      </div>
+</details>
+  </div>
 
-      <!-- Back link -->
-      <p class="back-link">
-        <a href="C:/Users/meher/Projects/website-push">← Back to Home</a>
-      </p>
-    </article>
+  <!-- Back link -->
+  <p class="back-link">
+    <a href="https://shrishtinigam.github.io">← Back to Home</a>
+  </p>
+</article>
 
 
   </main>
