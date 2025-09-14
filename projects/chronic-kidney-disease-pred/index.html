@@ -89,7 +89,6 @@ Chronic kidney disease (CKD) prediction is a complex task depending mainly on tw
 <li><strong>Consequences</strong>: CKD may cause waste buildup in the body, kidney failure, and the need for dialysis or transplant.  </li>
 <li><strong>Importance of Early Detection</strong>: Early diagnosis allows interventions to protect kidney function.</li>
 </ul>
-<hr>
 <h2 id="2-domain-knowledge">2. Domain Knowledge</h2>
 <ul>
 <li><strong>Main Causes</strong>: Diabetic nephropathy, diabetes, hypertension [1,2].  </li>
@@ -101,7 +100,6 @@ Chronic kidney disease (CKD) prediction is a complex task depending mainly on tw
 </ul>
 <p>Diagnosis criteria:<br>
 - eGFR &lt; 60 mL/min/1.73 m² or albuminuria ≥ 30 mg/24 hr for &gt;3 months [3].  </p>
-<hr>
 <h2 id="3-complications-quality-of-life">3. Complications &amp; Quality of Life</h2>
 <p><strong>Common complications</strong> [2]:<br>
 - Anemia<br>
@@ -109,7 +107,6 @@ Chronic kidney disease (CKD) prediction is a complex task depending mainly on tw
 - Cardiovascular disease<br>
 - Dialysis-related problems  </p>
 <p><strong>Impact on Quality of Life</strong>: Hypertension, fluid retention, bone pain, neuropathy, pruritus, frailty, depression, and medication side-effects.</p>
-<hr>
 <h2 id="4-dataset">4. Dataset</h2>
 <ul>
 <li><strong>Source</strong>: UCI Machine Learning Repository.  </li>
@@ -118,7 +115,7 @@ Chronic kidney disease (CKD) prediction is a complex task depending mainly on tw
 <li><strong>Target variable</strong>: Class → <code>ckd</code> / <code>notckd</code>.</li>
 </ul>
 <h3 id="table-1-dataset-attributes">Table 1: Dataset Attributes</h3>
-<table>
+<table border="1" cellspacing="0" cellpadding="5">
 <tr><th>Sr. No.</th><th>Abbr.</th><th>Attribute</th><th>Type</th><th>Units</th></tr>
 <tr><td>1</td><td>age</td><td>Age</td><td>Numerical</td><td>years</td></tr>
 <tr><td>2</td><td>bp</td><td>Blood Pressure</td><td>Numerical</td><td>mm/Hg</td></tr>
@@ -158,7 +155,7 @@ Chronic kidney disease (CKD) prediction is a complex task depending mainly on tw
 <h2 id="7-performance-metrics">7. Performance Metrics</h2>
 <p>Evaluation criteria: <strong>Accuracy, Precision, Recall, F1-Score</strong></p>
 <h3 id="table-2-accuracy">Table 2: Accuracy</h3>
-<table>
+<table border="1" cellspacing="0" cellpadding="5">
 <tr><th>Dataset</th><th>CNN</th><th>RF</th><th>DT</th><th>NB</th><th>LR</th><th>SVM</th></tr>
 <tr><td>D1</td><td>100</td><td>100</td><td>98.75</td><td>95</td><td>100</td><td>98.75</td></tr>
 <tr><td>D2</td><td>100</td><td>98.1</td><td>94.3</td><td>96.2</td><td>98.1</td><td>98.1</td></tr>
@@ -168,7 +165,7 @@ Chronic kidney disease (CKD) prediction is a complex task depending mainly on tw
 </table>
 
 <h3 id="table-3-precision">Table 3: Precision</h3>
-<table>
+<table border="1" cellspacing="0" cellpadding="5">
 <tr><th>Dataset</th><th>CNN</th><th>RF</th><th>DT</th><th>NB</th><th>LR</th><th>SVM</th></tr>
 <tr><td>D1</td><td>100</td><td>100</td><td>100</td><td>100</td><td>100</td><td>98.1</td></tr>
 <tr><td>D2</td><td>100</td><td>100</td><td>94.4</td><td>90.5</td><td>95</td><td>95</td></tr>
@@ -178,7 +175,7 @@ Chronic kidney disease (CKD) prediction is a complex task depending mainly on tw
 </table>
 
 <h3 id="table-4-recall">Table 4: Recall</h3>
-<table>
+<table border="1" cellspacing="0" cellpadding="5">
 <tr><th>Dataset</th><th>CNN</th><th>RF</th><th>DT</th><th>NB</th><th>LR</th><th>SVM</th></tr>
 <tr><td>D1</td><td>100</td><td>100</td><td>98.1</td><td>92.3</td><td>100</td><td>100</td></tr>
 <tr><td>D2</td><td>100</td><td>95.8</td><td>89.5</td><td>100</td><td>100</td><td>100</td></tr>
@@ -188,7 +185,7 @@ Chronic kidney disease (CKD) prediction is a complex task depending mainly on tw
 </table>
 
 <h3 id="table-5-f1-score">Table 5: F1-Score</h3>
-<table>
+<table border="1" cellspacing="0" cellpadding="5">
 <tr><th>Dataset</th><th>CNN</th><th>RF</th><th>DT</th><th>NB</th><th>LR</th><th>SVM</th></tr>
 <tr><td>D1</td><td>100</td><td>100</td><td>99</td><td>96</td><td>100</td><td>99</td></tr>
 <tr><td>D2</td><td>100</td><td>97.9</td><td>91.9</td><td>95</td><td>97.4</td><td>97.4</td></tr>
