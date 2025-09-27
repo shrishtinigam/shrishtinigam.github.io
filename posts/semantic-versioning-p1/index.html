@@ -52,18 +52,21 @@
 
   <!-- Post Content -->
   <div class="post-body">
-    <p>Let's unravel this timeline together.</p>
+    <p>Understanding versioning and release management of Python is crucial if you maintain Python libraries for a living, as I do. A thorough understanding helps you avoid dependency hell and ensures smooth upgrades during releases. To truly understand how versioning works in Python interpreters and Python libraries, we must begin at the beginning. The first stable version of Python was released in early 1991 (eleven years before I was born) and Python 2.0 was released in the middle of the dot-com crash. Meanwhile, in the wider world of software versioning, Semantic Versioning (SemVer) was introduced in 2009. Python itself didn’t see its latest standardization of versioning until the mid-2010s. In Part 1 of this three-part series, I’ll explore what software versioning is and how Python interpreters are versioned.</p>
+<p>Let's unravel this timeline together.</p>
 <h2 id="what-is-software-versioning">What is Software Versioning?</h2>
 <p>Software versioning can be defined simply -</p>
 <blockquote>
 <p><a href="https://en.wikipedia.org/wiki/Software_versioning">Software versioning</a> is the process of assigning either unique version names or unique version numbers to unique states of computer software.</p>
 <p>A <a href="https://dhtmlx.com/blog/versioning-schemes-importance-web-development/">versioning scheme</a> is a practice of categorizing changes in a software product during its lifecycle. To put it simply, these are unique identifiers containing numbers (or letters) given to different software iterations.</p>
 </blockquote>
-<p>There is a large variety of version numbering schemes, including but not limited to
-- Semantic Versioning - <code>MAJOR.MINOR.PATCH</code> + strict standard rules
-- Calendar Versioning - <code>YY.MM</code> like Ubuntu or <code>YYYY.R</code> like Chrome
-- Marketing Versions - macOS - <code>Tahoe</code>, <code>Sequoia</code>, <code>Sonoma</code> etc, Android <code>Marshmallow</code>, <code>Nougat</code>, <code>Oreo</code>
-- And most commonly, Hybrid Schemes, like <a href="https://openjdk.org/jeps/223">JEP:223 for Java</a>, <a href="https://peps.python.org/pep-0440/">PEP:440 for Python</a></p>
+<p>There is a large variety of version numbering schemes, including but not limited to</p>
+<ul>
+<li>Semantic Versioning - <code>MAJOR.MINOR.PATCH</code> + strict standard rules</li>
+<li>Calendar Versioning - <code>YY.MM</code> like Ubuntu or <code>YYYY.R</code> like Chrome</li>
+<li>Marketing Versions - macOS - <code>Tahoe</code>, <code>Sequoia</code>, <code>Sonoma</code> etc, Android <code>Marshmallow</code>, <code>Nougat</code>, <code>Oreo</code></li>
+<li>And most commonly, Hybrid Schemes, like <a href="https://openjdk.org/jeps/223">JEP:223 for Java</a>, <a href="https://peps.python.org/pep-0440/">PEP:440 for Python</a></li>
+</ul>
 <p>.. this list is by no means exhaustive. Some schemes are primarily for developers, some for end-users, and many software projects mix approaches.</p>
 <h2 id="okay-so-how-does-python-interpreter-versioning-work">Okay, So How Does Python Interpreter Versioning Work?</h2>
 <h3 id="pep-602">PEP 602</h3>
