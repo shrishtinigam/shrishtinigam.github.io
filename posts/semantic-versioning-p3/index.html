@@ -108,6 +108,7 @@ Version progression:</p>
 <p><a href="https://peps.python.org/pep-0518/">PEP 518</a> defines a standard way for Python projects to declare their build dependencies in a separate configuration file, rather than relying on setup.py. </p>
 <p>Historically, distutils and setuptools used executable setup.py scripts to build distributions. The PEP resolves this by allowing projects to declaratively list the minimal dependencies needed for the build system, so tools like pip can install them upfront. There are more details, which you can read about in PEP 517/518.</p>
 <p>The pyproject.toml file is a configuration file standard for Python projects, defined by this PEP. It uses the TOML (Tom's Obvious, Minimal Language) format, which is designed to be human-readable and easy to parse. This is adopted by newer libraries like <code>poetry</code> and <code>flit</code>, that help your create these dependencies. </p>
+<p>I will delve into a full Python setup guide in a separate post.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Here’s a quick reference for modern Python library best practices.</p>
 <table border="1" cellpadding="8" cellspacing="0">
@@ -143,10 +144,10 @@ Version progression:</p>
 
 <p>And there you have it: </p>
 <blockquote>
-<p>Follow SemVer's Major-Minor-Patch and backwards compatibility rules, 
-Don't assume everyone else follows them,
-Read the versioning scheme policy docs of the libraries you are using, and 
-Use pyproject.toml.</p>
+<p>Follow SemVer's Major-Minor-Patch and backwards compatibility rules, </p>
+<p>Don't assume everyone else follows them,</p>
+<p>Read the versioning scheme policy docs of the libraries you are using, and </p>
+<p>Use pyproject.toml.</p>
 </blockquote>
 <p>Now release that package you've been postponing!</p>
 <p><br><br></p>
