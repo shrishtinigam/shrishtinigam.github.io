@@ -5,37 +5,6 @@
   color: var(--color-accent);
 }
 
-/* Justified text for content */
-.about-text,
-.project-card p,
-.post-card p {
-  text-align: justify;
-  margin-bottom: 1rem;
-}
-
-/* Ensure container stays centered and responsive */
-.container {
-  width: 90%;
-  max-width: 900px;
-  margin: 0 auto;
-  /* center container */
-  padding: 1rem 0;
-}
-
-
-/* Section Headings Centered */
-.section-heading {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: var(--color-accent);
-}
-
-/* Justified text for content */
-.about-text,
-.project-card p,
-.post-card p {
-  text-align: justify;
-}
 
 /* Ensure container stays centered and responsive */
 .container {
@@ -88,16 +57,6 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-/* =========================
-   Containers
-========================= */
-.container {
-  width: 90%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1rem 0;
 }
 
 /* =========================
@@ -258,6 +217,46 @@ a:hover {
   font-weight: 600;
 }
 
+/* Container for tags */
+.tags {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+/* Label "Tags:" */
+.tags::before {
+  content: "Tags:";
+  font-weight: 600;
+  margin-right: 0.5rem;
+  color: var(--color-accent);
+}
+
+/* Individual tag pills */
+.tag {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+/* Hover effect for tags */
+.tag:hover {
+  background-color: #ff85c1;
+  /* slightly lighter accent */
+  transform: translateY(-1px);
+  cursor: pointer;
+}
+
+
 /* =========================
    Posts Section
 ========================= */
@@ -267,7 +266,8 @@ a:hover {
 .post-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* space between posts */
+  gap: 2rem;
+  /* space between posts */
   margin-top: 1.5rem;
 }
 
@@ -302,7 +302,7 @@ a:hover {
   font-size: 0.9rem;
 }
 
-.post-tags .tag {
+.post-tags {
   display: inline-block;
   background-color: var(--color-accent);
   color: var(--color-bg);
