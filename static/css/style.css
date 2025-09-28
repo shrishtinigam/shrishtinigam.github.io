@@ -1,3 +1,6 @@
+/* =========================
+   Global Styles
+========================= */
 /* Section Headings Centered */
 .section-heading {
   text-align: center;
@@ -5,6 +8,37 @@
   color: var(--color-accent);
 }
 
+/* Justified text for content */
+.about-text,
+.project-card p,
+.post-card p {
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+/* Ensure container stays centered and responsive */
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  /* center container */
+  padding: 1rem 0;
+}
+
+
+/* Section Headings Centered */
+.section-heading {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--color-accent);
+}
+
+/* Justified text for content */
+.about-text,
+.project-card p,
+.post-card p {
+  text-align: justify;
+}
 
 /* Ensure container stays centered and responsive */
 .container {
@@ -57,6 +91,16 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* =========================
+   Containers
+========================= */
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 0;
 }
 
 /* =========================
@@ -288,12 +332,6 @@ a:hover {
   margin: 0 0 0.5rem 0;
   color: var(--color-accent);
 }
-
-.post-card .summary {
-  margin-bottom: 0.5rem;
-  /* less space for summary */
-}
-
 
 /* Post Dates */
 .post-dates {
