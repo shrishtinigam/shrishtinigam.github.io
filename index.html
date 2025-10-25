@@ -5,46 +5,134 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Performance, Projects, Perspective">
+  <meta name="author" content="Meher Shrishti Nigam">
+  <meta name="keywords" content="software engineer, full stack developer, web development, portfolio, blog, Meher Shrishti Nigam">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shrishtinigam.github.io">
+  <meta property="og:title" content="shrishtinigam.github.io">
+  <meta property="og:description" content="Performance, Projects, Perspective">
+  <meta property="og:image" content="/static/og-image.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://shrishtinigam.github.io">
+  <meta property="twitter:title" content="shrishtinigam.github.io">
+  <meta property="twitter:description" content="Performance, Projects, Perspective">
+  <meta property="twitter:image" content="/static/og-image.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+  
   <title>shrishtinigam.github.io</title>
   <link rel="stylesheet" href="https://shrishtinigam.github.io/static/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Theme & Menu Scripts -->
   <script>
+    // Theme toggle
+    function initTheme() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+    
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+    
+    // Mobile menu toggle
     function toggleMenu() {
       const nav = document.getElementById('mobile-nav');
       nav.classList.toggle('open');
     }
+    
+    // Initialize theme on page load
+    initTheme();
   </script>
 </head>
 
 <body>
-  <header class="site-header">
+  <!-- Floating Background Shapes -->
+  <div class="floating-shape shape-1"></div>
+  <div class="floating-shape shape-2"></div>
+  <div class="floating-shape shape-3"></div>
+  
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  
+  <header class="site-header" role="banner">
     <div class="container header-container">
-      <a href="https://shrishtinigam.github.io" class="brand">shrishtinigam.github.io</a>
-      <nav class="site-nav desktop-nav">
+      <a href="https://shrishtinigam.github.io" class="brand" aria-label="Home">Meher Shrishti Nigam</a>
+      <nav class="site-nav desktop-nav" role="navigation" aria-label="Main navigation">
         <a href="https://shrishtinigam.github.io">Home</a>
         <a href="https://shrishtinigam.github.io/about">About</a>
         <a href="https://shrishtinigam.github.io/projects">Projects</a>
-        <a href="https://shrishtinigam.github.io/posts">Posts</a>
+        <a href="https://shrishtinigam.github.io/posts">Blog</a>
       </nav>
-      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle dark/light mode"></button>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      </div>
     </div>
-    <nav id="mobile-nav" class="site-nav mobile-nav">
+    <nav id="mobile-nav" class="site-nav mobile-nav" role="navigation" aria-label="Mobile navigation">
       <a href="https://shrishtinigam.github.io" onclick="toggleMenu()">Home</a>
       <a href="https://shrishtinigam.github.io/about" onclick="toggleMenu()">About</a>
       <a href="https://shrishtinigam.github.io/projects" onclick="toggleMenu()">Projects</a>
-      <a href="https://shrishtinigam.github.io/posts" onclick="toggleMenu()">Posts</a>
+      <a href="https://shrishtinigam.github.io/posts" onclick="toggleMenu()">Blog</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content" role="main">
     
+
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Meher Shrishti Nigam",
+  "url": "https://shrishtinigam.github.io",
+  "description": "Performance, Projects, Perspective",
+  "jobTitle": "Software Engineer",
+  "sameAs": [
+    "https://github.com/shrishtinigam",
+    "https://linkedin.com/in/yourprofile",
+    "https://twitter.com/yourhandle"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "shrishtinigam.github.io",
+  "description": "Performance, Projects, Perspective",
+  "url": "https://shrishtinigam.github.io",
+  "author": {
+    "@type": "Person",
+    "name": "Meher Shrishti Nigam"
+  }
+}
+</script>
 
 <!-- Hero Section -->
 <section class="hero container">
-  <h1 class="section-heading">Hello, I'm Meher Shrishti Nigam.</h1>
+  <h1 class="section-heading">Hello, I'm <span class="name">Meher Shrishti Nigam</span></h1>
   <p class="hero-description">Performance, Projects, Perspective</p>
+  <div class="hero-cta">
+    <a href="https://shrishtinigam.github.io/projects" class="cta-button primary">
+      <span>View Projects</span>
+    </a>
+    <a href="https://shrishtinigam.github.io/about" class="cta-button secondary">
+      <span>About Me</span>
+    </a>
+  </div>
 </section>
 
 <!-- About Section -->
@@ -63,8 +151,7 @@
     
     <article class="project-card">
       <h3>
-        <a
-          href="https://shrishtinigam.github.io/projects/microservices-based-web-app/index.html">
+        <a href="https://shrishtinigam.github.io/projects/microservices-based-web-app/">
           Microservices Based E-Commerce Web App
         </a>
       </h3>
@@ -73,15 +160,14 @@
       
       <p class="muted"><em>Node.js · JavaScript · React.js · TypeScript · Docker · Kubernetes</em></p>
       <p>Scalable microservices E-Commerce app with Node.js, TypeScript, React, and Kubernetes; orders managed via Redis and Bull.js.</p>
-      <a class="read-more" href="https://shrishtinigam.github.io/projects/microservices-based-web-app/index.html">
+      <a class="read-more" href="https://shrishtinigam.github.io/projects/microservices-based-web-app/">
         View Details →
       </a>
     </article>
     
     <article class="project-card">
       <h3>
-        <a
-          href="https://shrishtinigam.github.io/projects/pathfinding-algorithms-visualizer/index.html">
+        <a href="https://shrishtinigam.github.io/projects/pathfinding-algorithms-visualizer/">
           Pathfinding Algorithms Visualizers (SFML)
         </a>
       </h3>
@@ -90,15 +176,14 @@
       
       <p class="muted"><em>Object-Oriented Programming (OOP) · C++ · SFML</em></p>
       <p>Visualized and optimized four pathfinding algorithms on a grid map using C++ and SFML, highlighting performance metrics and efficient A* implementation.</p>
-      <a class="read-more" href="https://shrishtinigam.github.io/projects/pathfinding-algorithms-visualizer/index.html">
+      <a class="read-more" href="https://shrishtinigam.github.io/projects/pathfinding-algorithms-visualizer/">
         View Details →
       </a>
     </article>
     
     <article class="project-card">
       <h3>
-        <a
-          href="https://shrishtinigam.github.io/projects/dyslexic-char-recognition/index.html">
+        <a href="https://shrishtinigam.github.io/projects/dyslexic-char-recognition/">
           Dyslexic Character Recognition
         </a>
       </h3>
@@ -107,15 +192,14 @@
       
       <p class="muted"><em>Convolutional Neural Networks (CNN) · TensorFlow · Python</em></p>
       <p>CNN-based system to recognize handwritten characters for dyslexia, achieving 90% accuracy.</p>
-      <a class="read-more" href="https://shrishtinigam.github.io/projects/dyslexic-char-recognition/index.html">
+      <a class="read-more" href="https://shrishtinigam.github.io/projects/dyslexic-char-recognition/">
         View Details →
       </a>
     </article>
     
     <article class="project-card">
       <h3>
-        <a
-          href="https://shrishtinigam.github.io/projects/chronic-kidney-disease-pred/index.html">
+        <a href="https://shrishtinigam.github.io/projects/chronic-kidney-disease-pred/">
           Chronic Kidney Disease Prediction
         </a>
       </h3>
@@ -124,15 +208,14 @@
       
       <p class="muted"><em>scikit · TensorFlow · Seaborn · pandas · Python</em></p>
       <p>Performed predictive modeling for Chronic Kidney Disease using multiple ML models and CNN on the UCI CKD dataset.</p>
-      <a class="read-more" href="https://shrishtinigam.github.io/projects/chronic-kidney-disease-pred/index.html">
+      <a class="read-more" href="https://shrishtinigam.github.io/projects/chronic-kidney-disease-pred/">
         View Details →
       </a>
     </article>
     
     <article class="project-card">
       <h3>
-        <a
-          href="https://shrishtinigam.github.io/projects/mner-xlm-roberta/index.html">
+        <a href="https://shrishtinigam.github.io/projects/mner-xlm-roberta/">
           Multilingual Named Entity Recognition using XLM-RoBERTa
         </a>
       </h3>
@@ -141,7 +224,7 @@
       
       <p class="muted"><em>Large Language Models (LLM) · Transformer Models · Named Entity Recognition (NER) · NLP · Python</em></p>
       <p>Fine-tuned XLM-RoBERTa for multilingual Named Entity Recognition on Indian languages, achieving effective cross-lingual performance.</p>
-      <a class="read-more" href="https://shrishtinigam.github.io/projects/mner-xlm-roberta/index.html">
+      <a class="read-more" href="https://shrishtinigam.github.io/projects/mner-xlm-roberta/">
         View Details →
       </a>
     </article>
@@ -158,45 +241,74 @@
     
     <article class="post-card">
       <h3>
-        <a
-          href="https://shrishtinigam.github.io/posts/semantic-versioning-p3/index.html">
-          &lt;p&gt;Get &lt;del&gt;Semantic&lt;/del&gt; Versioning Right in Your Python Library - Part 3&lt;/p&gt;
+        <a href="https://shrishtinigam.github.io/posts/semantic-versioning-p3/">
+          Get Semantic Versioning Right in Your Python Library - Part 3
         </a>
       </h3>
       <p class="muted">Sep 28, 2025</p>
       <p><p>Part 3 covers practical steps to build your own Python library.</p></p>
-      <a class="read-more"
-        href="https://shrishtinigam.github.io/posts/semantic-versioning-p3/index.html">
+      
+      <div class="tags">
+        
+        <span class="tag">python</span>
+        
+        <span class="tag">pypi</span>
+        
+        <span class="tag">pep standards</span>
+        
+      </div>
+      
+      <a class="read-more" href="https://shrishtinigam.github.io/posts/semantic-versioning-p3/">
         Read →
       </a>
     </article>
     
     <article class="post-card">
       <h3>
-        <a
-          href="https://shrishtinigam.github.io/posts/semantic-versioning-p2/index.html">
-          &lt;p&gt;Get &lt;del&gt;Semantic&lt;/del&gt; Versioning Right in Your Python Library - Part 2&lt;/p&gt;
+        <a href="https://shrishtinigam.github.io/posts/semantic-versioning-p2/">
+          Get Semantic Versioning Right in Your Python Library - Part 2
         </a>
       </h3>
       <p class="muted">Sep 21, 2025</p>
       <p><p>Part 2 builds on core versioning principles, and explores how Python libraries handle versioning.</p></p>
-      <a class="read-more"
-        href="https://shrishtinigam.github.io/posts/semantic-versioning-p2/index.html">
+      
+      <div class="tags">
+        
+        <span class="tag">python</span>
+        
+        <span class="tag">semver</span>
+        
+        <span class="tag">pep standards</span>
+        
+        <span class="tag">pip</span>
+        
+      </div>
+      
+      <a class="read-more" href="https://shrishtinigam.github.io/posts/semantic-versioning-p2/">
         Read →
       </a>
     </article>
     
     <article class="post-card">
       <h3>
-        <a
-          href="https://shrishtinigam.github.io/posts/semantic-versioning-p1/index.html">
-          &lt;p&gt;Get &lt;del&gt;Semantic&lt;/del&gt; Versioning Right in Your Python Library - Part 1&lt;/p&gt;
+        <a href="https://shrishtinigam.github.io/posts/semantic-versioning-p1/">
+          Get Semantic Versioning Right in Your Python Library - Part 1
         </a>
       </h3>
       <p class="muted">Sep 10, 2025</p>
       <p><p>Part 1 of a deep dive into Python versioning and release management to avoid dependency issues and ensure smooth upgrades.</p></p>
-      <a class="read-more"
-        href="https://shrishtinigam.github.io/posts/semantic-versioning-p1/index.html">
+      
+      <div class="tags">
+        
+        <span class="tag">python</span>
+        
+        <span class="tag">software versioning</span>
+        
+        <span class="tag">pep standards</span>
+        
+      </div>
+      
+      <a class="read-more" href="https://shrishtinigam.github.io/posts/semantic-versioning-p1/">
         Read →
       </a>
     </article>
@@ -208,9 +320,51 @@
 
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <p>&copy; Meher Shrishti Nigam — Powered by SSG (Python + Jinja)</p>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Meher Shrishti Nigam</h3>
+          <p>Performance, Projects, Perspective</p>
+          <p>Building scalable systems and sharing technical insights.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <nav aria-label="Footer navigation">
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <a href="https://shrishtinigam.github.io/about">About Me</a>
+              <a href="https://shrishtinigam.github.io/projects">Projects</a>
+              <a href="https://shrishtinigam.github.io/posts">Blog Posts</a>
+            </div>
+          </nav>
+        </div>
+        
+        <div class="footer-section contact-section">
+          <h3>Get in Touch</h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="icon">📧</span>
+              <a href="mailto:your.email@example.com">your.email@example.com</a>
+            </div>
+          </div>
+          <div class="social-links" aria-label="Social media links">
+            <a href="https://github.com/shrishtinigam" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Twitter" title="Twitter">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; Meher Shrishti Nigam 2025 • Built with Python & Jinja2</p>
+      </div>
     </div>
   </footer>
 </body>
