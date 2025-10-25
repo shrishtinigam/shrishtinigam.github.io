@@ -5,4 +5,4 @@ Allow: /
 # Disallow admin or private directories (if any)
 # Disallow: /admin/
 
-Sitemap: https://shrishtinigam.github.io/sitemap.xml
+Sitemap: C:/Users/meher/Projects/website-push/sitemap.xml
