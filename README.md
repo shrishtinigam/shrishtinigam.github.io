@@ -17,11 +17,14 @@ Tags:
 The page body goes here.
 ```
 
-Images can be placed in `static/images/` and referenced from Markdown:
+Images can be placed in `content/images/` and referenced from Markdown:
 
 ```markdown
 ![Architecture diagram](/static/images/architecture.png)
 ```
+
+Images placed in `content/posts/images/`, `content/projects/images/`, or
+`content/pages/images/` are also copied automatically to the generated site.
 
 Run `make check` to validate and list the documents. To rebuild the site:
 

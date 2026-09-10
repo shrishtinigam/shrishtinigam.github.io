@@ -47,6 +47,13 @@ def build(root: Path, output: Path) -> None:
         shutil.rmtree(output)
     (output / "static").mkdir(parents=True)
     shutil.copytree(root / "static", output / "static", dirs_exist_ok=True)
+    content_images = root / "content" / "images"
+    if content_images.exists():
+        shutil.copytree(content_images, output / "static" / "images", dirs_exist_ok=True)
+    for content_kind in ("posts", "projects", "pages"):
+        images = root / "content" / content_kind / "images"
+        if images.exists():
+            shutil.copytree(images, output / "static" / "images", dirs_exist_ok=True)
     (output / ".nojekyll").touch()
     for filename in ("robots.txt", "sitemap.xml"):
         source = root / filename

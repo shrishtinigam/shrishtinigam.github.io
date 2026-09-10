@@ -6,6 +6,9 @@ install:
 check:
 	python -m sitegen.cli check
 
+test:
+	python -m unittest discover -s tests -v
+
 migrate:
 	python -m sitegen.cli migrate
 
