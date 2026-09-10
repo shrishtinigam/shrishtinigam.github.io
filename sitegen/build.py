@@ -47,6 +47,11 @@ def build(root: Path, output: Path) -> None:
         shutil.rmtree(output)
     (output / "static").mkdir(parents=True)
     shutil.copytree(root / "static", output / "static", dirs_exist_ok=True)
+    (output / ".nojekyll").touch()
+    for filename in ("robots.txt", "sitemap.xml"):
+        source = root / filename
+        if source.exists():
+            shutil.copy2(source, output / filename)
 
     def write(template: str, relative: str, **extra) -> None:
         destination = output / relative

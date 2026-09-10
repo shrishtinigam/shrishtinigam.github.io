@@ -35,3 +35,6 @@ kept in `templates/`, and the first migration can be repeated with:
 ```bash
 make migrate
 ```
+
+GitHub Actions builds and deploys `output/` through GitHub Pages. Enable
+**Settings → Pages → Source: GitHub Actions** once in the repository settings.
