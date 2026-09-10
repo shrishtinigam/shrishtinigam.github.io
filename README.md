@@ -1,79 +1,47 @@
 # shrishtinigam.github.io
 
-## New content workflow
+This repository contains the published GitHub Pages site and its deployment
+workflow. The canonical editable Markdown content and Pelican theme now live
+in the standalone [github-pages-ssg repository](https://github.com/shrishtinigam/github-pages-ssg).
 
-Write posts and projects as Markdown files in `content/posts/` and
-`content/projects/`. Put front matter at the top of each file.
+## Content workflow
 
-For a blog post:
+Edit Markdown in the SSG repository:
+
+```text
+content/posts/       blog posts
+content/projects/    project pages
+content/pages/       about and collection pages
+theme/static/        CSS, JavaScript, fonts, and images
+```
+
+Each file uses YAML front matter. For example:
 
 ```markdown
-Title: My project
-Slug: my-project
+---
+Title: My post
+Slug: my-post
 Date: 2025-01-01
-Summary: A short description.
+Summary: A short description shown on listing pages.
 Tags:
   - python
   - systems
+---
 
-The page body goes here.
+Write the article in Markdown. Images can be added to the theme static assets
+or referenced from the generated static path.
 ```
 
-For a project:
+Build locally from the SSG repository with `make check`, `make test`, and
+`make build`. The build writes to a sibling `pelican-output/` directory, never
+inside the generator repository.
 
-```markdown
-Title: My project
-Slug: my-project
-Project Type: Personal Project
-Duration: 2025
-Summary: A short card description.
-Skills: Python, Docker, PostgreSQL
-Image: my-project.jpg
+## Deployment
 
-## Overview
+GitHub Actions clones the SSG repository's `feature/markdown-ssg` branch,
+validates it, runs Pelican, and deploys the generated `output/` artifact to
+GitHub Pages. Once the Pelican pull request is merged, update the workflow's
+branch reference to `main`.
 
-Project details go here.
-```
-
-Images can be placed in `content/images/` and referenced from Markdown:
-
-```markdown
-![Architecture diagram](/static/images/architecture.png)
-```
-
-Images placed in `content/posts/images/`, `content/projects/images/`, or
-`content/pages/images/` are also copied automatically to the generated site.
-
-Run `make check` to validate and list the documents. To rebuild the site:
-
-```bash
-make build
-```
-
-The generated files are written to `output/`; do not edit that directory by
-hand. Edit Markdown, templates, or static assets instead.
-
-## Local setup
-
-Use a virtual environment on a fresh machine:
-
-```bash
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
-.venv/bin/python -m sitegen.cli check
-.venv/bin/python -m unittest discover -s tests -v
-```
-
-The current design is intentionally kept in `templates/` and
-`static/css/style.css`. Change those only when you intend to change the visual
-appearance of the published site.
-
-The generated site is written to `output/`. The existing visual templates are
-kept in `templates/`, and the first migration can be repeated with:
-
-```bash
-make migrate
-```
-
-GitHub Actions builds and deploys `output/` through GitHub Pages. Enable
-**Settings → Pages → Source: GitHub Actions** once in the repository settings.
+The existing HTML, CSS, JavaScript, assets, and URL structure are intentionally
+preserved while the build system is migrated.
