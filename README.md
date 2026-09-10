@@ -1,0 +1,27 @@
+# shrishtinigam.github.io
+
+## New content workflow
+
+Write posts and projects as Markdown files in `content/posts/` and
+`content/projects/`. Put front matter at the top of each file:
+
+```markdown
+Title: My project
+Slug: my-project
+Date: 2025-01-01
+Summary: A short description.
+Tags:
+  - python
+  - systems
+
+The page body goes here.
+```
+
+Images can be placed in `static/images/` and referenced from Markdown:
+
+```markdown
+![Architecture diagram](/static/images/architecture.png)
+```
+
+Run `make check` to validate and list the documents. The renderer will be
+connected to the existing website templates in the next migration step.
