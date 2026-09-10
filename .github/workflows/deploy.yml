@@ -2,7 +2,7 @@ name: Build and deploy portfolio
 
 on:
   push:
-    branches: [main, feature/markdown-ssg]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
