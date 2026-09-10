@@ -31,15 +31,15 @@ jobs:
         run: git clone --depth 1 --branch feature/markdown-ssg https://github.com/shrishtinigam/github-pages-ssg.git .ssg
 
       - name: Install Pelican generator
-        run: python -m pip install -r .ssg/requirements.txt
+        run: python -m pip install ./.ssg
 
       - name: Validate Markdown
         working-directory: .ssg
-        run: make check
+        run: spg check
 
       - name: Build site
         working-directory: .ssg
-        run: python -m pelican content -s publishconf.py -o ../output -t theme --fatal warnings
+        run: spg build --output ../output
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
