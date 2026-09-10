@@ -31,6 +31,8 @@ def build(root: Path, output: Path) -> None:
     documents = [_rendered(document) for document in load_documents(root / "content")]
     posts = [item for item in documents if item.get("kind", "") == "posts"]
     projects = [item for item in documents if item.get("kind", "") == "projects"]
+    projects.sort(key=lambda item: int(item.get("order", 999)))
+    posts.sort(key=lambda item: str(item.get("date", "")), reverse=True)
     pages = [item for item in documents if item.get("kind", "") == "pages"]
     for item in documents:
         if "project_type" in item:
@@ -66,7 +68,7 @@ def build(root: Path, output: Path) -> None:
         render_context = {**context, **extra}
         destination.write_text(env.get_template(template).render(**render_context), encoding="utf-8")
 
-    write("index.html", "index.html")
+    write("index.html", "index.html", posts=posts[:3])
     about = next((page for page in pages if page.get("slug") == "about"), {"body_html": ""})
     write("about.html", "about/index.html", about_html=about["body_html"])
     write("posts.html", "posts/index.html", posts=sorted(posts, key=lambda item: str(item.get("date", "")), reverse=True))

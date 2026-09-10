@@ -6,6 +6,7 @@ Duration: May 2023 - Jun 2023
 Summary: Built a scalable E-Commerce Web Application using a microservices and event-driven architecture.
 Skills: 
 Image: microservices-based-web-app.jpg
+Order: 1
 ---
 
 <h2 id="overview">Overview</h2>

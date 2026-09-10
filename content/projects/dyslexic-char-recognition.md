@@ -6,6 +6,7 @@ Duration: Sep 2022 - Nov 2022
 Summary: Developed a deep learning-based system to recognize handwritten characters by individuals with dyslexia or dysgraphia (affecting 9-12% of population).
 Skills: 
 Image: dyslexic-char-recognition.jpg
+Order: 3
 ---
 
 <h2 id="overview">Overview</h2>

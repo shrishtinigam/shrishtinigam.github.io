@@ -6,6 +6,7 @@ Duration: Apr 2022 - Jul 2022
 Summary: Performed predictive modeling for Chronic Kidney Disease (CKD) using multiple ML models and CNN on the UCI CKD dataset.
 Skills: 
 Image: chronic-kidney-disease-pred.jpg
+Order: 4
 ---
 
 <h2 id="overview">Overview</h2>

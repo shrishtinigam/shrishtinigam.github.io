@@ -6,6 +6,7 @@ Duration: May 2023 - Jun 2023
 Summary: Visualized four pathfinding algorithms (Dijkstra's, A*, BFS, DFS) on a grid map.
 Skills: 
 Image: pathfinding-algorithms-visualizer.jpg
+Order: 2
 ---
 
 <h2 id="overview">Overview</h2>

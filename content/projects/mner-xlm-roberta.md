@@ -6,6 +6,7 @@ Duration: May 2022 - Jul 2022
 Summary: Fine-tuned XLM-RoBERTa for multilingual Named Entity Recognition (NER) on Indian languages.
 Skills: 
 Image: mner-xlm-roberta.jpg
+Order: 5
 ---
 
 <h2 id="overview">Overview</h2>

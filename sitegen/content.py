@@ -31,7 +31,10 @@ def load_documents(content_dir: Path) -> list[Document]:
     for path in sorted(content_dir.glob("**/*.md")):
         kind = path.parent.name
         post = frontmatter.load(path)
-        metadata = dict(post.metadata)
+        metadata = {
+            str(key).strip().lower().replace(" ", "_"): value
+            for key, value in post.metadata.items()
+        }
         metadata.setdefault("slug", path.stem)
         documents.append(
             Document(
