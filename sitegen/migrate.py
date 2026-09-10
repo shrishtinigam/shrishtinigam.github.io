@@ -1,0 +1,66 @@
+"""Convert generated HTML pages into editable Markdown without extra tooling."""
+
+from html import unescape
+from pathlib import Path
+import re
+
+
+def _text(value: str) -> str:
+    value = re.sub(r"<[^>]+>", "", value)
+    return re.sub(r"\s+", " ", unescape(value)).strip()
+
+
+def _section(html: str, class_name: str) -> str:
+    match = re.search(rf'<(?:div|article|section)[^>]*class="[^"]*\b{class_name}\b[^"]*"[^>]*>(.*?)</(?:div|article|section)>', html, flags=re.I | re.S)
+    return match.group(1) if match else ""
+
+
+def _convert(html: str) -> str:
+    html = re.sub(r'<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>', r"[\2](\1)", html, flags=re.I | re.S)
+    html = re.sub(r'<img[^>]*src="([^"]+)"[^>]*alt="([^"]*)"[^>]*>', r"![\2](\1)", html, flags=re.I | re.S)
+    for level in range(1, 7):
+        html = re.sub(rf"</?h{level}[^>]*>", "\n" + "#" * level + " ", html, flags=re.I)
+    html = re.sub(r"<li[^>]*>", "\n- ", html, flags=re.I)
+    html = re.sub(r"</(p|li|pre|br|div|section|h[1-6])[^>]*>", "\n\n", html, flags=re.I)
+    html = re.sub(r"<code[^>]*>(.*?)</code>", lambda m: "`" + _text(m.group(1)) + "`", html, flags=re.I | re.S)
+    return re.sub(r"\n{3,}", "\n\n", _text(html)).strip() + "\n"
+
+
+def _write(path: Path, metadata: list[str], body: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("---\n" + "\n".join(metadata) + "\n---\n\n" + body, encoding="utf-8")
+
+
+def migrate_existing_site(root: Path) -> None:
+    for page in sorted((root / "posts").glob("*/index.html")):
+        html = page.read_text(encoding="utf-8")
+        article = _section(html, "post")
+        if not article:
+            continue
+        title_match = re.search(r"<h1[^>]*>(.*?)</h1>", article, re.S)
+        title = _text(title_match.group(1)) if title_match else page.parent.name
+        muted = re.search(r'class="muted"[^>]*>(.*?)</p>', article, re.S)
+        date_text = _text(muted.group(1)).replace("Published: ", "").split("|")[0].strip() if muted else ""
+        tags = re.findall(r'class="tag"[^>]*>(.*?)</span>', article, re.S)
+        slug = page.parent.name
+        _write(root / "content" / "posts" / f"{slug}.md", [f"Title: {title}", f"Slug: {slug}", f"Date: {date_text}", "Tags:", *[f"  - {_text(tag)}" for tag in tags]], _convert(_section(article, "post-body")))
+
+    for page in sorted((root / "projects").glob("*/index.html")):
+        html = page.read_text(encoding="utf-8")
+        article = _section(html, "project")
+        if not article:
+            continue
+        slug = page.parent.name
+        title_match = re.search(r"<h1[^>]*>(.*?)</h1>", article, re.S)
+        title = _text(title_match.group(1)) if title_match else slug.replace("-", " ").title()
+        meta = re.findall(r'<span[^>]*>(.*?)</span>', _section(article, "project-meta"), re.S)
+        skills = _text(_section(article, "project-skills")).replace("·", ",")
+        body_html = _section(article, "project-body")
+        summary_match = re.search(r"<p[^>]*>(.*?)</p>", body_html, re.S)
+        summary = _text(summary_match.group(1)) if summary_match else ""
+        _write(root / "content" / "projects" / f"{slug}.md", [f"Title: {title}", f"Slug: {slug}", f"Project Type: {_text(meta[0]) if meta else 'Personal Project'}", f"Duration: {_text(meta[1]) if len(meta) > 1 else ''}", f"Summary: {summary}", f"Skills: {skills}"], _convert(body_html))
+
+    about = root / "about" / "index.html"
+    if about.exists():
+        html = about.read_text(encoding="utf-8")
+        _write(root / "content" / "pages" / "about.md", ["Title: About Me", "Slug: about"], _convert(_section(html, "about-text")))

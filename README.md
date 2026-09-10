@@ -23,5 +23,15 @@ Images can be placed in `static/images/` and referenced from Markdown:
 ![Architecture diagram](/static/images/architecture.png)
 ```
 
-Run `make check` to validate and list the documents. The renderer will be
-connected to the existing website templates in the next migration step.
+Run `make check` to validate and list the documents. To rebuild the site:
+
+```bash
+make build
+```
+
+The generated site is written to `output/`. The existing visual templates are
+kept in `templates/`, and the first migration can be repeated with:
+
+```bash
+make migrate
+```
