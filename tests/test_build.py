@@ -15,6 +15,7 @@ class BuildSmokeTest(unittest.TestCase):
             self.assertTrue((output / "about" / "index.html").exists())
             self.assertTrue((output / "posts" / "semantic-versioning-p1" / "index.html").exists())
             self.assertTrue((output / "projects" / "microservices-based-web-app" / "index.html").exists())
+            self.assertFalse((output / "posts" / "semantic-versioning" / "index.html").exists())
             self.assertTrue((output / "static" / "css" / "style.css").exists())
             self.assertTrue((output / ".nojekyll").exists())
 
