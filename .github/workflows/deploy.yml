@@ -7,8 +7,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -21,17 +19,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Checkout canonical Pelican source
+        uses: actions/checkout@v4
+        with:
+          repository: shrishtinigam/github-pages-ssg
+          ref: main
+          path: .ssg
+          persist-credentials: false
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache: pip
-
-      - name: Checkout Pelican generator
-        run: git clone --depth 1 --branch feature/markdown-ssg https://github.com/shrishtinigam/github-pages-ssg.git .ssg
+          cache-dependency-path: |
+            .ssg/requirements.txt
+            .ssg/constraints.txt
+            .ssg/pyproject.toml
 
       - name: Install Pelican generator
-        run: python -m pip install ./.ssg
+        working-directory: .ssg
+        run: python -m pip install -r requirements.txt
 
       - name: Validate Markdown
         working-directory: .ssg
@@ -41,12 +49,19 @@ jobs:
         working-directory: .ssg
         run: spg build --output ../output
 
+      - name: Test generator before publishing
+        working-directory: .ssg
+        run: python -m unittest discover -s tests -v
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: output
 
   deploy:
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -1,47 +1,38 @@
-# shrishtinigam.github.io
+# shrishtinigam.github.io — deployment repository
 
-This repository contains the published GitHub Pages site and its deployment
-workflow. The canonical editable Markdown content and Pelican theme now live
-in the standalone [github-pages-ssg repository](https://github.com/shrishtinigam/github-pages-ssg).
+This repository hosts the GitHub Pages workflow for
+**https://shrishtinigam.github.io/**. Edit your website in
+**[github-pages-ssg](https://github.com/shrishtinigam/github-pages-ssg)**.
+Its README covers setup, spg dev, authoring, and publishing.
 
-## Content workflow
+## What deploys
 
-Edit Markdown in the SSG repository:
+.github/workflows/deploy.yml runs on a push to this repository's main or a
+workflow-dispatch request. It checks out github-pages-ssg/main into .ssg/,
+installs its constrained Python dependencies, validates, builds, tests, and
+deploys output/ with the official Pages actions. Output is an artifact, not a
+new commit or a manual copy operation. The source checkout is fixed for that
+run; a later source push triggers another run.
 
-```text
-content/posts/       blog posts
-content/projects/    project pages
-content/pages/       about and collection pages
-theme/static/        CSS, JavaScript, fonts, and images
-```
+The SSG repository requests this workflow after its main checks pass. Configure
+SITE_DEPLOY_TOKEN **in the SSG repository**: a fine-grained token limited to this
+repository with Actions read/write access. See the SSG README for exact setup.
 
-Each file uses YAML front matter. For example:
+In this repository's **Settings → Pages**, verify **Source: GitHub Actions**.
+Keep the current domain; check github-pages environment restrictions. For manual
+deployment, open **Actions → Build and deploy portfolio → Run workflow**, using
+main. Inspect the deploy job before assuming a release succeeded.
 
-```markdown
----
-Title: My post
-Slug: my-post
-Date: 2025-01-01
-Summary: A short description shown on listing pages.
-Tags:
-  - python
-  - systems
----
+## Migration boundary
 
-Write the article in Markdown. Images can be added to the theme static assets
-or referenced from the generated static path.
-```
+This workflow now selects SSG **main**, replacing feature/markdown-ssg.
+Merge the accompanying SSG changes first. The domain and routes stay the same;
+the branch supplying future deployments changes.
 
-Build locally from the SSG repository with `make check`, `make test`, and
-`make build`. The build writes to a sibling `pelican-output/` directory, never
-inside the generator repository.
+The older sitegen/, templates/, content/, static/, Makefile, package files,
+tests, and committed root HTML remain as historical migration material.
+**The current workflow does not use them.** Editing those copies does not update
+canonical source. They have deliberately not been deleted in this audit.
+Use the SSG checkout for everyday editing, preview, tests, and exports.
 
-## Deployment
-
-GitHub Actions clones the SSG repository's `feature/markdown-ssg` branch,
-validates it, runs Pelican, and deploys the generated `output/` artifact to
-GitHub Pages. Once the Pelican pull request is merged, update the workflow's
-branch reference to `main`.
-
-The existing HTML, CSS, JavaScript, assets, and URL structure are intentionally
-preserved while the build system is migrated.
+When editing posts or projects, no changes to this repository are needed.
